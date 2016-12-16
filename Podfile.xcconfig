@@ -1,0 +1,14 @@
+//
+//  Podfile.xcconfig
+//  sideBarMenuNav
+//
+//  Created by Miguel Angel Luna on 5/12/16.
+//  Copyright © 2016 Miguel Angel Luna. All rights reserved.
+//
+
+//source 'https://github.com/Mozharovsky/CVCalendar'
+//pod 'CVCalendar', '~ 1.4.1'
+
+target 'sideBarMenuNav' do
+    pod 'CVCalendar', '~> 1.4'
+end

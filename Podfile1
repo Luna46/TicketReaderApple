@@ -1,0 +1,4 @@
+workspace 'sideBarMenuNav'
+target 'sideBarMenuNav' do
+	pod 'CVCalendar', '~> 1.4'
+end 
