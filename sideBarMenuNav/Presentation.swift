@@ -26,21 +26,46 @@ public class Presentation: UIViewController {
         
     }
     
-    override public func viewDidLoad() {
-        super.viewDidLoad()
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         let preferences = UserDefaults.standard
-        
+        TicketConstant.UID = preferences.string(forKey: "UID")
+        if (TicketConstant.UID == nil){
+            
+            TicketConstant.UID = ""
+            
+        }
+        TicketConstant.Usuario = preferences.string(forKey: "Usuario")
+        if (TicketConstant.Usuario == nil){
+            
+            TicketConstant.Usuario = ""
+            
+        }
+        TicketConstant.Email = preferences.string(forKey: "Email")
+        if (TicketConstant.Email == nil){
+            
+            TicketConstant.Email = ""
+            
+        }
+        TicketConstant.Password = preferences.string(forKey: "PassWord")
+        if (TicketConstant.Password == nil){
+            
+            TicketConstant.Password = ""
+            
+        }
+        var queEs = TicketConstant.UID
+        //TicketConstant.UID = preferences.object(forKey: "UID") as! String
+        //TicketConstant.Email = preferences.object(forKey: "Email") as! String
+        //TicketConstant.Usuario = preferences.object(forKey: "Usuario") as! String
+        //TicketConstant.Password = preferences.object(forKey: "PassWord") as! String
         //let camino = preferences.object(forKey: "UID") as! String
         
         var isEqual = (TicketConstant.UID == "")
         
         //LEER SHARED PREFERENCES
-
-        //TicketConstant.UID = preferences.object(forKey: "UID") as! String
-        //TicketConstant.Email = preferences.object(forKey: "Email") as! String
-        //TicketConstant.Usuario = preferences.object(forKey: "Usuario") as! String
-        //TicketConstant.Password = preferences.object(forKey: "PassWord") as! String
+        
+        
         
         //Saber si es nuestra primera vez en la aplicación.
         if !isEqual {
@@ -48,6 +73,13 @@ public class Presentation: UIViewController {
             //self.performSegue(withIdentifier: "aLosTickets", sender: self)
             self.navigationController?.pushViewController(camino, animated: true)
         }
+        
+    }
+    
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
         
         //Personalización de botones.
         pregistryButton.layer.cornerRadius = 10

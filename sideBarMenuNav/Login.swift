@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import Firebase
 
 protocol ScannerViewControllerDelegate2 {
     
@@ -107,17 +108,16 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
         
         let servidor = TicketWebServer()
         
-        var token = tocken(lenght: 152)
-        
-        
+        //var token = tocken(lenght: 152)
+        //let refreshedToken = FIRInstanceID.instanceID().token()
         //Dependiendo del checkbutton nuestro UID tiene un valor o otro
         if checked {
             
             let UID = String(arc4random_uniform(1999999999) + 1)
             
-            
+            let refreshedToken = FIRInstanceID.instanceID().token()
             //LLamamos al servidor con los parámetros introducidos desde la aplicacion
-            servidor.loginUser(Email: email, Password: password, UID: UID, tocken: token) { message, error in
+            servidor.loginUser(Email: email, Password: password, UID: UID, tocken: refreshedToken!) { message, error in
                 
                 let preferences = UserDefaults.standard
                 
@@ -169,15 +169,16 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
                 else {
                     
                     print("APARCAO")
+                    TicketConstant.Email = email
+                    TicketConstant.Password = password
+                    TicketConstant.UID = UID
+                    preferences.set(TicketConstant.Email, forKey: "Email")
+                    //preferences.set(TicketConstant.Usuario, forKey: "Usuario")
+                    preferences.set(TicketConstant.Password, forKey: "PassWord")
+                    preferences.set(TicketConstant.UID, forKey: "UID")
+                    preferences.synchronize()
                     //Evitamos colapso entre los "threads"
                     DispatchQueue.main.async {
-                        TicketConstant.Email = email
-                        TicketConstant.Password = password
-                        TicketConstant.UID = UID
-                        preferences.set("Email", forKey: TicketConstant.Email)
-                        preferences.set("PassWord", forKey: TicketConstant.Password)
-                        preferences.set("UID", forKey: TicketConstant.UID)
-                        preferences.synchronize()
                         self.performSegue(withIdentifier: "aLosTickets2", sender: self)
                     }
                     
@@ -190,7 +191,9 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
             
             let UID = self.uidTextField.text!
             
-            servidor.loginUser(Email: email, Password: password, UID: UID, tocken: token) { message, error in
+            let refreshedToken = FIRInstanceID.instanceID().token()
+            
+            servidor.loginUser(Email: email, Password: password, UID: UID, tocken: refreshedToken!) { message, error in
                 
                 let preferences = UserDefaults.standard
                 
@@ -240,14 +243,15 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
                 else {
                     
                     print("APARCAO")
+                    TicketConstant.Email = email
+                    TicketConstant.Password = password
+                    TicketConstant.UID = UID
+                    preferences.set(TicketConstant.Email, forKey: "Email")
+                    //preferences.set(TicketConstant.Usuario, forKey: "Usuario")
+                    preferences.set(TicketConstant.Password, forKey: "PassWord")
+                    preferences.set(TicketConstant.UID, forKey: "UID")
+                    preferences.synchronize()
                     DispatchQueue.main.async {
-                        TicketConstant.Email = email
-                        TicketConstant.Password = password
-                        TicketConstant.UID = UID
-                        preferences.set("Email", forKey: TicketConstant.Email)
-                        preferences.set("PassWord", forKey: TicketConstant.Password)
-                        preferences.set("UID", forKey: TicketConstant.UID)
-                        preferences.synchronize()
                         self.performSegue(withIdentifier: "aLosTickets2", sender: self)
                     }
                     
@@ -266,6 +270,13 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
         loginB.layer.cornerRadius = 10
         loginB.clipsToBounds = true
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func cancel(sender:UIButton!)
@@ -443,6 +454,15 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
         
         return randomString
         
+    }
+    
+    func tokenRefreshNotification(_ notification: Notification) {
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            print("InstanceID token: \(refreshedToken)")
+        }
+        
+        // Connect to FCM since connection may have failed when attempted before having a token.
+        //connectToFcm()
     }
     
     

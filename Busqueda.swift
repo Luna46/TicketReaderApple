@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Busqueda: UIViewController {
     
@@ -74,7 +75,15 @@ class Busqueda: UIViewController {
         searchButton.clipsToBounds = true
         quitSearch.layer.cornerRadius = 10
         quitSearch.clipsToBounds = true
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
 
+    }
+    
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
 }

@@ -12,13 +12,13 @@ import Foundation
 public class TicketConstant {
     
     
-    static var UID: String = ""
+    static var UID: String! = ""
     
-    static var Usuario: String = ""
+    static var Usuario: String! = ""
     
-    static var Password: String = ""
+    static var Password: String! = ""
     
-    static var Email: String = ""
+    static var Email: String! = ""
     
     static var modeSend: Int = 0x04
     

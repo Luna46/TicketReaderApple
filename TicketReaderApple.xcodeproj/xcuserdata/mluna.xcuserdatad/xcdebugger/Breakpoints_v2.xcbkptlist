@@ -499,7 +499,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/PageViewControllerSearch.swift"
@@ -694,76 +694,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "sideBarMenuNav/Presentation.swift"
-            timestampString = "503574314.169848"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "cameraQR(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "cameraQR(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
-            landmarkName = "alertView(alertView:clickedButtonAtIndex:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -775,11 +711,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -823,11 +759,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
             <Locations>
@@ -835,31 +771,31 @@
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "sideBarMenuNav.Registro.guardarDatos (Any) -&gt; ()"
-                  moduleName = "sideBarMenuNav"
+                  symbolName = "TicketReaderApple.Registro.guardarDatos (Any) -&gt; ()"
+                  moduleName = "TicketReaderApple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mluna/Desktop/sideBarMenuNav/sideBarMenuNav/Registro.swift"
-                  timestampString = "503409092.726338"
+                  timestampString = "504003361.486981"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "5840">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "7752">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "sideBarMenuNav.Registro.(guardarDatos (Any) -&gt; ()).(closure #1)"
-                  moduleName = "sideBarMenuNav"
+                  symbolName = "TicketReaderApple.Registro.(guardarDatos (Any) -&gt; ()).(closure #1)"
+                  moduleName = "TicketReaderApple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mluna/Desktop/sideBarMenuNav/sideBarMenuNav/Registro.swift"
-                  timestampString = "503409092.728011"
+                  timestampString = "504003361.488197"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "31">
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "36">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -871,11 +807,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -887,11 +823,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -903,11 +839,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -919,11 +855,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -935,11 +871,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -967,11 +903,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/Registro.swift"
-            timestampString = "503572768.394597"
+            timestampString = "504012212.432367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "guardarDatos(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1203,7 +1139,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sideBarMenuNav/TicketList.swift"
@@ -1216,34 +1152,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "sideBarMenuNav.TicketList.tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()"
-                  moduleName = "sideBarMenuNav"
+                  symbolName = "TicketReaderApple.TicketList.tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()"
+                  moduleName = "TicketReaderApple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mluna/Desktop/sideBarMenuNav/sideBarMenuNav/TicketList.swift"
-                  timestampString = "503574638.855088"
+                  timestampString = "504012973.935652"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "23">
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "sideBarMenuNav.TicketList.tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()"
-                  moduleName = "sideBarMenuNav"
+                  symbolName = "TicketReaderApple.TicketList.tableView (__ObjC.UITableView, didSelectRowAt : Foundation.IndexPath) -&gt; ()"
+                  moduleName = "TicketReaderApple"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mluna/Desktop/sideBarMenuNav/sideBarMenuNav/TicketList.swift"
-                  timestampString = "503574638.856297"
+                  timestampString = "504012973.936896"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "510">
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "516">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BC848BFEF4490F9E7AE5467 /* Pods_TicketReaderApple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF104A8F438B11B3183B7895 /* Pods_TicketReaderApple.framework */; };
+		0F1321742819B78CE5DDEE99 /* Pods_TicketReaderAppleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A7F1C7A5F4ED51BAEFFCA4 /* Pods_TicketReaderAppleUITests.framework */; };
+		B3CE13F6AB27B5EC5E4ECBD4 /* Pods_TicketReaderAppleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A197ACFFFB5C0018BD6C3ADB /* Pods_TicketReaderAppleTests.framework */; };
+		BB5EF3271E081EF40072A9DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB5EF3261E081EF40072A9DC /* GoogleService-Info.plist */; };
+		BB6B61B91E0A97DD00F0F56A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6B61B81E0A97DD00F0F56A /* CameraViewController.swift */; };
 		BB77EB851E003F0C00D6C9A7 /* white.gif in Resources */ = {isa = PBXBuildFile; fileRef = BB77EB841E003F0C00D6C9A7 /* white.gif */; };
 		BB77EB871E003F3E00D6C9A7 /* checkboxD.png in Resources */ = {isa = PBXBuildFile; fileRef = BB77EB861E003F3E00D6C9A7 /* checkboxD.png */; };
 		BB77EB891E0045C500D6C9A7 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = BB77EB881E0045C500D6C9A7 /* camera.png */; };
@@ -55,6 +60,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15422519EB96C13670F8BF55 /* Pods-TicketReaderAppleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderAppleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderAppleUITests/Pods-TicketReaderAppleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		27F707F3B042DF7D2ACD3ACD /* Pods-TicketReaderApple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderApple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderApple/Pods-TicketReaderApple.debug.xcconfig"; sourceTree = "<group>"; };
+		28A7F1C7A5F4ED51BAEFFCA4 /* Pods_TicketReaderAppleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketReaderAppleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55087D3BBBDDB46ED91CE0CC /* Pods-TicketReaderAppleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderAppleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderAppleTests/Pods-TicketReaderAppleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B1525E441B15FDE5647FCC1 /* Pods-TicketReaderApple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderApple.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderApple/Pods-TicketReaderApple.release.xcconfig"; sourceTree = "<group>"; };
+		5C565D1E6F6C3242367A7054 /* Pods-TicketReaderAppleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderAppleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderAppleTests/Pods-TicketReaderAppleTests.release.xcconfig"; sourceTree = "<group>"; };
+		A197ACFFFB5C0018BD6C3ADB /* Pods_TicketReaderAppleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketReaderAppleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB5EF3261E081EF40072A9DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BB6B61B81E0A97DD00F0F56A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		BB77EB841E003F0C00D6C9A7 /* white.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = white.gif; sourceTree = "<group>"; };
 		BB77EB861E003F3E00D6C9A7 /* checkboxD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkboxD.png; sourceTree = "<group>"; };
 		BB77EB881E0045C500D6C9A7 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
@@ -89,6 +103,8 @@
 		BBD28CB61DF5C87600246AEF /* TicketWebServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketWebServer.swift; sourceTree = "<group>"; };
 		BBD28CB81DF5C8FE00246AEF /* ViewControllerProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerProvider.swift; sourceTree = "<group>"; };
 		BBD438D51DF8230200386B7A /* TicketList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketList.swift; sourceTree = "<group>"; };
+		CF104A8F438B11B3183B7895 /* Pods_TicketReaderApple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketReaderApple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA43570F1540C54B6FD606FA /* Pods-TicketReaderAppleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderAppleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderAppleUITests/Pods-TicketReaderAppleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC848BFEF4490F9E7AE5467 /* Pods_TicketReaderApple.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3CE13F6AB27B5EC5E4ECBD4 /* Pods_TicketReaderAppleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,12 +128,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1321742819B78CE5DDEE99 /* Pods_TicketReaderAppleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4184B8D6DF92E49B16478155 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27F707F3B042DF7D2ACD3ACD /* Pods-TicketReaderApple.debug.xcconfig */,
+				5B1525E441B15FDE5647FCC1 /* Pods-TicketReaderApple.release.xcconfig */,
+				55087D3BBBDDB46ED91CE0CC /* Pods-TicketReaderAppleTests.debug.xcconfig */,
+				5C565D1E6F6C3242367A7054 /* Pods-TicketReaderAppleTests.release.xcconfig */,
+				FA43570F1540C54B6FD606FA /* Pods-TicketReaderAppleUITests.debug.xcconfig */,
+				15422519EB96C13670F8BF55 /* Pods-TicketReaderAppleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		78BE481A601C51C8D7124E7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF104A8F438B11B3183B7895 /* Pods_TicketReaderApple.framework */,
+				A197ACFFFB5C0018BD6C3ADB /* Pods_TicketReaderAppleTests.framework */,
+				28A7F1C7A5F4ED51BAEFFCA4 /* Pods_TicketReaderAppleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB8785301DFEF26C003A7F76 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,9 +178,12 @@
 		BBD28C691DF5B60400246AEF = {
 			isa = PBXGroup;
 			children = (
+				BB5EF3261E081EF40072A9DC /* GoogleService-Info.plist */,
 				BB8785301DFEF26C003A7F76 /* Images */,
 				BBD28C741DF5B60400246AEF /* TicketReaderApple */,
 				BBD28C731DF5B60400246AEF /* Products */,
+				4184B8D6DF92E49B16478155 /* Pods */,
+				78BE481A601C51C8D7124E7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +219,7 @@
 				BB8785311DFEF93D003A7F76 /* Presentation.swift */,
 				BB8785331DFF1507003A7F76 /* Registro.swift */,
 				BB88D5581E018BFB0051F231 /* Login.swift */,
+				BB6B61B81E0A97DD00F0F56A /* CameraViewController.swift */,
 			);
 			name = TicketReaderApple;
 			path = sideBarMenuNav;
@@ -196,9 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBD28C9A1DF5B60400246AEF /* Build configuration list for PBXNativeTarget "TicketReaderApple" */;
 			buildPhases = (
+				63101FB5E3CE4D64B7793CFB /* [CP] Check Pods Manifest.lock */,
 				BBD28C6E1DF5B60400246AEF /* Sources */,
 				BBD28C6F1DF5B60400246AEF /* Frameworks */,
 				BBD28C701DF5B60400246AEF /* Resources */,
+				1468EE61ED2C421B13CEA4E5 /* [CP] Embed Pods Frameworks */,
+				C1DC0E99161D6A187214C83C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,9 +262,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBD28C9D1DF5B60400246AEF /* Build configuration list for PBXNativeTarget "TicketReaderAppleTests" */;
 			buildPhases = (
+				A30D8B652D31DC7FF8754B75 /* [CP] Check Pods Manifest.lock */,
 				BBD28C821DF5B60400246AEF /* Sources */,
 				BBD28C831DF5B60400246AEF /* Frameworks */,
 				BBD28C841DF5B60400246AEF /* Resources */,
+				2A0017E999E127156727DD0D /* [CP] Embed Pods Frameworks */,
+				7B01AC62C9552C529B354BAD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,9 +283,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBD28CA01DF5B60400246AEF /* Build configuration list for PBXNativeTarget "TicketReaderAppleUITests" */;
 			buildPhases = (
+				A7B9A688B806EE3DEE76C7EB /* [CP] Check Pods Manifest.lock */,
 				BBD28C8D1DF5B60400246AEF /* Sources */,
 				BBD28C8E1DF5B60400246AEF /* Frameworks */,
 				BBD28C8F1DF5B60400246AEF /* Resources */,
+				78939B9582DD1793D748259E /* [CP] Embed Pods Frameworks */,
+				762FE4C88112E57608DFE4F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -313,6 +368,7 @@
 				BB87852B1DFEE9F7003A7F76 /* menuD.png in Resources */,
 				BB8785271DFEE887003A7F76 /* menu icon.png in Resources */,
 				BB87852F1DFEEC9B003A7F76 /* TICKETS-NOW.png in Resources */,
+				BB5EF3271E081EF40072A9DC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +388,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1468EE61ED2C421B13CEA4E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketReaderApple/Pods-TicketReaderApple-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A0017E999E127156727DD0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketReaderAppleTests/Pods-TicketReaderAppleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63101FB5E3CE4D64B7793CFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		762FE4C88112E57608DFE4F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketReaderAppleUITests/Pods-TicketReaderAppleUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78939B9582DD1793D748259E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketReaderAppleUITests/Pods-TicketReaderAppleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B01AC62C9552C529B354BAD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketReaderAppleTests/Pods-TicketReaderAppleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A30D8B652D31DC7FF8754B75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A7B9A688B806EE3DEE76C7EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C1DC0E99161D6A187214C83C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TicketReaderApple/Pods-TicketReaderApple-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BBD28C6E1DF5B60400246AEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -350,6 +544,7 @@
 				BBD28CB11DF5C7F000246AEF /* TicketConstant.swift in Sources */,
 				BBD28CAD1DF5C5EE00246AEF /* EditUser.swift in Sources */,
 				BBD28CB51DF5C84600246AEF /* CardViewController.swift in Sources */,
+				BB6B61B91E0A97DD00F0F56A /* CameraViewController.swift in Sources */,
 				BBD28CB91DF5C8FE00246AEF /* ViewControllerProvider.swift in Sources */,
 				BBD28CB71DF5C87600246AEF /* TicketWebServer.swift in Sources */,
 			);
@@ -499,11 +694,13 @@
 		};
 		BBD28C9B1DF5B60400246AEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27F707F3B042DF7D2ACD3ACD /* Pods-TicketReaderApple.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = C9698KUH57;
 				INFOPLIST_FILE = sideBarMenuNav/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DisaTec.TicketReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,11 +712,13 @@
 		};
 		BBD28C9C1DF5B60400246AEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B1525E441B15FDE5647FCC1 /* Pods-TicketReaderApple.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = C9698KUH57;
 				INFOPLIST_FILE = sideBarMenuNav/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DisaTec.TicketReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,6 +729,7 @@
 		};
 		BBD28C9E1DF5B60400246AEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55087D3BBBDDB46ED91CE0CC /* Pods-TicketReaderAppleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -545,6 +745,7 @@
 		};
 		BBD28C9F1DF5B60400246AEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C565D1E6F6C3242367A7054 /* Pods-TicketReaderAppleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -560,6 +761,7 @@
 		};
 		BBD28CA11DF5B60400246AEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA43570F1540C54B6FD606FA /* Pods-TicketReaderAppleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = C9698KUH57;
@@ -574,6 +776,7 @@
 		};
 		BBD28CA21DF5B60400246AEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15422519EB96C13670F8BF55 /* Pods-TicketReaderAppleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = C9698KUH57;

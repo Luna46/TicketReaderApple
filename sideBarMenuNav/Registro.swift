@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import Firebase
 
 //Interfaz necesaria para la implementación del lector de códigos QR
 protocol ScannerViewControllerDelegate {
@@ -17,7 +18,14 @@ protocol ScannerViewControllerDelegate {
     
 }
 
-public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate {
+public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate, UITextFieldDelegate {
+    
+    var UIDFrom: String?
+    
+    
+    var objCaptureSession:AVCaptureSession?
+    var objCaptureVideoPreviewLayer:AVCaptureVideoPreviewLayer?
+    var vwQRCode:UIView?
     
     @IBOutlet weak var registerButton: UIButton!
     var checked = false
@@ -66,10 +74,10 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
                 TicketConstant.UID = String(arc4random_uniform(1999999999) + 1)
             
                 //Los "preferences" nos ayudan a guardar unos valores locales en la aplicación, para que cuando esta se cierre no se pierdan y podamos continuar donde estábamos sin volver al principio.
-                preferences.set("Email", forKey: TicketConstant.Email)
-                preferences.set("Usuario", forKey: TicketConstant.Usuario)
-                preferences.set("PassWord", forKey: TicketConstant.Password)
-                preferences.set("UID", forKey: TicketConstant.UID)
+                preferences.set(TicketConstant.Email, forKey: "Email")
+                preferences.set(TicketConstant.Usuario, forKey: "Usuario")
+                preferences.set(TicketConstant.Password, forKey: "PassWord")
+                preferences.set(TicketConstant.UID, forKey: "UID")
                 preferences.synchronize()
             
             }
@@ -78,10 +86,10 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             
                 TicketConstant.UID = self.UID.text!
             
-                preferences.set("Email", forKey: TicketConstant.Email)
-                preferences.set("Usuario", forKey: TicketConstant.Usuario)
-                preferences.set("PassWord", forKey: TicketConstant.Password)
-                preferences.set("UID", forKey: TicketConstant.UID)
+                preferences.set(TicketConstant.Email, forKey: "Email")
+                preferences.set(TicketConstant.Usuario, forKey: "Usuario")
+                preferences.set(TicketConstant.Password, forKey: "PassWord")
+                preferences.set(TicketConstant.UID, forKey: "UID")
                 preferences.synchronize()
             
             }
@@ -93,10 +101,11 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
             
                 let servidor = TicketWebServer()
                 //"Tocken de Google" más abajo está la implementación de la función.
-                var Tocken = tocken(lenght: 152)
+                let Tocken = FIRInstanceID.instanceID().token()
+                //let refreshedToken =
             
                 //LLamada al servidor, la llamada se hace de esta manera debido a los "threads" para evitar colisiones.
-                servidor.sendUIDtoServer(Usuario: TicketConstant.Usuario, PassWord: TicketConstant.Password, Email: TicketConstant.Email, UID: TicketConstant.UID, token: Tocken, mensaje: "") { message, error in
+                servidor.sendUIDtoServer(Usuario: TicketConstant.Usuario, PassWord: TicketConstant.Password, Email: TicketConstant.Email, UID: TicketConstant.UID!, token: Tocken!, mensaje: "") { message, error in
                 
                     var emailEqual = (message == "Email existente")
                     var UIDEqual = (message == "UID existente")
@@ -183,44 +192,15 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     //Lector códigos QR.
     @IBAction func cameraQR(_ sender: Any) {
         
-        setupCamera()
+        var datos = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewController") as! CameraViewController
         
+        datos.registro = self
         
-        let button   = UIButton(type: .system)
-        let rect = CGRect(origin: CGPoint(x: 100,y: 100), size: CGSize(width: 120, height: 50))
-        button.frame = rect
-        button.backgroundColor = UIColor(red: 1.0, green: (127/255.0), blue: 0.0, alpha: 1.0)
-        button.setTitle("Cancel", for: UIControlState.normal)
-        button.titleLabel?.font = UIFont(name: "Chalkduster", size: 14)
-        button.addTarget(self, action: "cancel:", for: UIControlEvents.touchUpInside)
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        self.view.addSubview(button)
-        
-        //Don't forget this line
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        //        var constX = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        //        view.addConstraint(constX)
-        //
-        //        var constY = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
-        //        view.addConstraint(constY)
-        
-        var constTrailingMargin = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -50)
-        //button.addConstraint(constTrailingMargin)
-        view.addConstraint(constTrailingMargin)
-        
-        var constBottonMargin = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -50)
-        //button.addConstraint(constBottonMargin)
-        view.addConstraint(constBottonMargin)
-        
-        var constW = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
-        button.addConstraint(constW)
-        //view.addConstraint(constW) also works
-        
-        var constH = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
-        button.addConstraint(constH)
-        //view.addConstraint(constH) also works
+        self.navigationController?.pushViewController(datos, animated: true)
+        //self.performSegue(withIdentifier: "toCamera", sender: self)
+        /**self.configureVideoCapture()
+        self.addVideoPreviewLayer()
+        self.initializeQRView()*/
         
     }
     
@@ -248,164 +228,87 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         registerButton.layer.cornerRadius = 10
         registerButton.clipsToBounds = true
         
-    }
-    
-    //FUNCIONES DEL LECTOR DE CÓDIGOS QR.
-    func cancel(sender:UIButton!)
-    {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if !self.canBeDisplayed{
-            self.showAlertError()
-            
+        if UIDFrom != nil {
+            UID.text = UIDFrom
         }
         
-        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
     
-    override public func viewDidDisappear(_ animated: Bool) {
-        if let s = self.session{
-            s.stopRunning()
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    
+    func configureVideoCapture() {
+        let objCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        var error:NSError?
+        let objCaptureDeviceInput: AnyObject!
+        do {
+            objCaptureDeviceInput = try AVCaptureDeviceInput(device: objCaptureDevice) as AVCaptureDeviceInput
             
+        } catch let error1 as NSError {
+            error = error1
+            objCaptureDeviceInput = nil
         }
-    }
-    
-    override public func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func setupCamera(){
-        
-        self.device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        if self.device == nil {
-            print("No video camera on this device!")
-            //self.dismissViewControllerAnimated(true, completion: nil)
-            self.canBeDisplayed = false
+        if (error != nil) {
+            let alertView:UIAlertView = UIAlertView(title: "Device Error", message:"Device not Supported for this Application", delegate: nil, cancelButtonTitle: "Ok Done")
+            alertView.show()
             return
         }
-        
-        if let s = self.session{
+        objCaptureSession = AVCaptureSession()
+        objCaptureSession?.addInput(objCaptureDeviceInput as! AVCaptureInput)
+        let objCaptureMetadataOutput = AVCaptureMetadataOutput()
+        objCaptureSession?.addOutput(objCaptureMetadataOutput)
+        objCaptureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        objCaptureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+    }
+    
+    func addVideoPreviewLayer() {
+        objCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: objCaptureSession)
+        objCaptureVideoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        objCaptureVideoPreviewLayer?.frame = view.layer.bounds
+        self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
+        objCaptureSession?.startRunning()
+        //self.view.bringSubview(toFront: lblQRCodeResult)
+        //self.view.bringSubview(toFront: lblQRCodeLabel)
+    }
+    
+    func initializeQRView() {
+        vwQRCode = UIView()
+        vwQRCode?.layer.borderColor = UIColor.red.cgColor
+        vwQRCode?.layer.borderWidth = 5
+        self.view.addSubview(vwQRCode!)
+        self.view.bringSubview(toFront: vwQRCode!)
+    }
+    
+    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+        if metadataObjects == nil || metadataObjects.count == 0 {
+            vwQRCode?.frame = CGRect.zero
+            UID.text = "NO QRCode text detacted"
             return
-            
-        }else{
-            self.session = AVCaptureSession()
-            
-            if let s = self.session{
-                
-                do {
-                
-                    let input = try AVCaptureDeviceInput(device: self.device)
-                    
-                }
-                
-                catch let error as NSError {
-                    
-                    print("Error QR")
-                    
-                }
-                
-                //self.input = AVCaptureDeviceInput.deviceInputWithDevice(self.device, error:nil) as? AVCaptureDeviceInput
-                if s.canAddInput(self.input) {
-                    s.addInput(self.input)
-                }
-                
-                self.output = AVCaptureMetadataOutput()
-                self.output?.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                if s.canAddOutput(self.output) {
-                    s.addOutput(self.output)
-                }
-                self.output?.metadataObjectTypes = self.output?.availableMetadataObjectTypes
-                
-                
-                self.preview = AVCaptureVideoPreviewLayer(session: s)
-                self.preview?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                self.preview?.frame = self.view.frame
-                self.view.layer.insertSublayer(self.preview!, at: 0)
-                
-                s.startRunning()
-            }
         }
-        
-        
-        
-    }
-    
-    func showAlertError(){
-        
-        var alertView = UIAlertView(
-            title:"Atention",
-            message:"Scanner can't be displayed",
-            delegate:self,
-            cancelButtonTitle:"OK")
-        alertView.tag = 1
-        
-        alertView.show()
-    }
-    
-    func showAlertCodeDetected(code: String){
-        
-        var alertView = UIAlertView(
-            title:"Code Detected",
-            message:"The code is: " + code,
-            delegate:self,
-            cancelButtonTitle:"Accept",
-            otherButtonTitles: "Cancel")
-        
-        alertView.tag = 0
-        
-        alertView.show()
-    }
-    
-    
-    // MARK:  AVCaptureMetadataOutputObjectsDelegate
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-        
-        if !self.codeDetected{
-            
-            for data in metadataObjects {
-                let metaData = data as! AVMetadataObject
-                let transformed = self.preview?.transformedMetadataObject(for: metaData) as? AVMetadataMachineReadableCodeObject
+        let objMetadataMachineReadableCodeObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        if objMetadataMachineReadableCodeObject.type == AVMetadataObjectTypeQRCode {
+            let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
+            vwQRCode?.frame = objBarCode.bounds;
+            if objMetadataMachineReadableCodeObject.stringValue != nil {
+                UID.text = objMetadataMachineReadableCodeObject.stringValue
+                //navigationController?.popViewController(animated: true)
+
+                //var datos = self.storyboard?.instantiateViewController(withIdentifier: "Registro") as! Registro
                 
-                if let unwraped = transformed {
-                    let code: String = unwraped.stringValue
-                    print("CodeBar: " + code)
-                    if !(code == ""){
-                        self.codeDetected = true
-                        self.code = code
-                        //self.delegate?.codeDetected(code)
-                        
-                        //self.dismissViewControllerAnimated(true, completion: nil)
-                        self.showAlertCodeDetected(code: code)
-                    }
-                }
-            }
-            
-        }
-    }
-    
-    // MARK:  UIAlertViewDelegate
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        
-        if(alertView.tag == 0){
-            
-            if buttonIndex == 0{
-                self.delegate?.codeDetected(code: self.code!)
-                self.dismiss(animated: true, completion: nil)
-            }else if buttonIndex == 1{
+                //self.navigationController?.pushViewController(datos, animated: true)
                 
-                self.codeDetected = false
+                //datos.UID?.text = objMetadataMachineReadableCodeObject.stringValue
+                //datos.UID?.text = "GG"
+                objCaptureSession?.stopRunning()
+                
+                //var prueba = datos.UID.text
+                //var hola: String
+                //objCaptureSession?.stopRunning()
             }
-            
-            
-        }else if(alertView.tag == 1){
-            
-            self.dismiss(animated: true, completion: nil)
         }
     }
     

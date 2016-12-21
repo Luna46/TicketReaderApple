@@ -59,7 +59,7 @@ class EditUser: UIViewController {
         
         let servidor = TicketWebServer()
     
-        servidor.remove(Email: TicketConstant.Email, UID: TicketConstant.UID) { message, error in
+        servidor.remove(Email: TicketConstant.Email, UID: TicketConstant.UID!) { message, error in
             
             var equal = (message == "Eliminado")
             
