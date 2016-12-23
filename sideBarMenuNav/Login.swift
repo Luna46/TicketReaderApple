@@ -59,44 +59,11 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
     //Lector de códigos QR
     @IBAction func cameraButton(_ sender: Any) {
         
-        setupCamera()
+        var datos = self.storyboard?.instantiateViewController(withIdentifier: "CameraViewControllerLogin") as! CameraViewControllerLogin
         
+        datos.login = self
         
-        let button   = UIButton(type: .system)
-        let rect = CGRect(origin: CGPoint(x: 100,y: 100), size: CGSize(width: 120, height: 50))
-        button.frame = rect
-        button.backgroundColor = UIColor(red: 1.0, green: (127/255.0), blue: 0.0, alpha: 1.0)
-        button.setTitle("Cancel", for: UIControlState.normal)
-        button.titleLabel?.font = UIFont(name: "Chalkduster", size: 14)
-        button.addTarget(self, action: "cancel:", for: UIControlEvents.touchUpInside)
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        self.view.addSubview(button)
-        
-        //Don't forget this line
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        //        var constX = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        //        view.addConstraint(constX)
-        //
-        //        var constY = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
-        //        view.addConstraint(constY)
-        
-        var constTrailingMargin = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: -50)
-        //button.addConstraint(constTrailingMargin)
-        view.addConstraint(constTrailingMargin)
-        
-        var constBottonMargin = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -50)
-        //button.addConstraint(constBottonMargin)
-        view.addConstraint(constBottonMargin)
-        
-        var constW = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 100)
-        button.addConstraint(constW)
-        //view.addConstraint(constW) also works
-        
-        var constH = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
-        button.addConstraint(constH)
-        //view.addConstraint(constH) also works
+        self.navigationController?.pushViewController(datos, animated: true)
         
     }
     
@@ -121,8 +88,8 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
                 
                 let preferences = UserDefaults.standard
                 
-                var userRejected = (message == "Falso")
-                var UIDRejected = (message == "Falso UID")
+                var userRejected = (message == "Contraseña incorrecta")
+                var UIDRejected = (message == "El dispositivo con el UID especificado no puede registrarse, porque ya está registrado a nombre de otro usuario")
                 
                 if userRejected {
                     
@@ -197,8 +164,8 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
                 
                 let preferences = UserDefaults.standard
                 
-                var userRejected = (message == "Falso")
-                var UIDRejected = (message == "Falso UID")
+                var userRejected = (message == "Contraseña incorrecta")
+                var UIDRejected = (message == "El dispositivo con el UID especificado no puede registrarse, porque ya está registrado a nombre de otro usuario")
                 
                 if userRejected {
                     
@@ -279,164 +246,13 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
         view.endEditing(true)
     }
     
-    func cancel(sender:UIButton!)
-    {
-        self.dismiss(animated: true, completion: nil)
-    }
     
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if !self.canBeDisplayed{
-            self.showAlertError()
-            
-        }
-        
-        
-    }
-    
-    override public func viewDidDisappear(_ animated: Bool) {
-        if let s = self.session{
-            s.stopRunning()
-            
-        }
-    }
     
     override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func setupCamera(){
-        
-        self.device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        if self.device == nil {
-            print("No video camera on this device!")
-            //self.dismissViewControllerAnimated(true, completion: nil)
-            self.canBeDisplayed = false
-            return
-        }
-        
-        if let s = self.session{
-            return
-            
-        }else{
-            self.session = AVCaptureSession()
-            
-            if let s = self.session{
-                
-                do {
-                    
-                    let input = try AVCaptureDeviceInput(device: self.device)
-                    
-                }
-                    
-                catch let error as NSError {
-                    
-                    print("Error QR")
-                    
-                }
-                
-                //self.input = AVCaptureDeviceInput.deviceInputWithDevice(self.device, error:nil) as? AVCaptureDeviceInput
-                if s.canAddInput(self.input) {
-                    s.addInput(self.input)
-                }
-                
-                self.output = AVCaptureMetadataOutput()
-                self.output?.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                if s.canAddOutput(self.output) {
-                    s.addOutput(self.output)
-                }
-                self.output?.metadataObjectTypes = self.output?.availableMetadataObjectTypes
-                
-                
-                self.preview = AVCaptureVideoPreviewLayer(session: s)
-                self.preview?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                self.preview?.frame = self.view.frame
-                self.view.layer.insertSublayer(self.preview!, at: 0)
-                
-                s.startRunning()
-            }
-        }
-        
-        
-        
-    }
-    
-    func showAlertError(){
-        
-        var alertView = UIAlertView(
-            title:"Atention",
-            message:"Scanner can't be displayed",
-            delegate:self,
-            cancelButtonTitle:"OK")
-        alertView.tag = 1
-        
-        alertView.show()
-    }
-    
-    func showAlertCodeDetected(code: String){
-        
-        var alertView = UIAlertView(
-            title:"Code Detected",
-            message:"The code is: " + code,
-            delegate:self,
-            cancelButtonTitle:"Accept",
-            otherButtonTitles: "Cancel")
-        
-        alertView.tag = 0
-        
-        alertView.show()
-    }
-    
-    
-    // MARK:  AVCaptureMetadataOutputObjectsDelegate
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-        
-        if !self.codeDetected{
-            
-            for data in metadataObjects {
-                let metaData = data as! AVMetadataObject
-                let transformed = self.preview?.transformedMetadataObject(for: metaData) as? AVMetadataMachineReadableCodeObject
-                
-                if let unwraped = transformed {
-                    let code: String = unwraped.stringValue
-                    print("CodeBar: " + code)
-                    if !(code == ""){
-                        self.codeDetected = true
-                        self.code = code
-                        //self.delegate?.codeDetected(code)
-                        
-                        //self.dismissViewControllerAnimated(true, completion: nil)
-                        self.showAlertCodeDetected(code: code)
-                    }
-                }
-            }
-            
-        }
-    }
-    
-    // MARK:  UIAlertViewDelegate
-    
-    //Evitamos llamar al servidor si todos los campos no están rellenos mediante una alerta
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        
-        if(alertView.tag == 0){
-            
-            if buttonIndex == 0{
-                self.delegate?.codeDetected(code: self.code!)
-                self.dismiss(animated: true, completion: nil)
-            }else if buttonIndex == 1{
-                
-                self.codeDetected = false
-            }
-            
-            
-        }else if(alertView.tag == 1){
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
     
     //Función que crea el "Tocken de Google"
     func tocken(lenght: Int) -> String{

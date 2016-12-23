@@ -21,6 +21,8 @@ class PageViewControllerSearch: UIPageViewController {
 
         super.viewDidLoad()
         
+        
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: "revealToggle:")
         
         dataSource = self

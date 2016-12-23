@@ -28,7 +28,7 @@ public class TicketList: UIViewController, UITableViewDelegate, UITableViewDataS
         
         //Sino existen tickets con la búsqueda ofrecida lo informamos.
         if TicketConstant.ticketList.count == 0 {
-            labelinformation.font = UIFont.boldSystemFont(ofSize: 12)
+            labelinformation.font = UIFont.boldSystemFont(ofSize: 16)
             labelinformation.text = "No existen tickets disponibles\n para este filtro de búsqueda"
             tableView.isHidden = true
         }

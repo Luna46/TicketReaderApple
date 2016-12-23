@@ -16,6 +16,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
     /// The callback to handle data message received via FCM for devices running iOS 10 or above.
     public func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
         print("%@",remoteMessage.appData)
+        /**let content = UNMutableNotificationContent()
+        
+        content.title = "Hello"
+        content.body = "What up?"
+        content.sound = UNNotificationSound.default()
+        
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
+        
+        // Schedule the notification.
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            print(error)
+        }
+        print("should have been added")*/
+        var localNotification = UILocalNotification()
+        //localNotification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: -1) as Date
+        localNotification.alertAction = "Nuevo ticket"
+        localNotification.alertBody = "Ticket"
+        localNotification.timeZone = NSTimeZone.default
+        localNotification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+        UIApplication.shared.scheduleLocalNotification(localNotification)
+        /**var notification = UILocalNotification()
+        // debe de activarse dentro de 5 segundos
+        notification.fireDate! = Date(timeIntervalSinceNow: 5)
+        // mensaje que saldrá en la alerta
+        notification.alertBody! = "¡Nuevo Ticket!"
+        // sonido por defecto
+        notification.soundName! = UILocalNotificationDefaultSoundName
+        // título del botón
+        notification.alertAction! = "Ahora te lo cuento"
+        notification.hasAction = true
+        // activa la notificación
+        UIApplication.shared.scheduleLocalNotification(notification)*/
+        
+    }
+    
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        //application.applicationIconBadgeNumber = 0
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -23,10 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
     }
     
     // [START disconnect_from_fcm]
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    /**func applicationDidEnterBackground(_ application: UIApplication) {
         FIRMessaging.messaging().disconnect()
         print("Disconnected from FCM.")
-    }
+    }*/
 
 
     var window: UIWindow?
@@ -213,8 +254,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         if #available(iOS 10.0, *) {
-            let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_,_ in })
+            //let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
+            //UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_,_ in })
+            
+            let center = UNUserNotificationCenter.current() //get the notification center
+            center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+            }
             
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -240,7 +286,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+    /**func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -267,7 +313,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         print(userInfo)
         
         completionHandler(UIBackgroundFetchResult.newData)
-    }
+    }*/
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
@@ -311,9 +357,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         print(userInfo)
     }*/
     
-    func application(application: UIApplication,  didReceiveRemoteNotification userInfo: [NSObject : AnyObject],  fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication,  didReceiveRemoteNotification userInfo: [NSObject : AnyObject],  fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         print(userInfo)
+        //userInfo.index(forKey: "grupo" as NSObject)
+        //print(userInfo["grupo"])
+        //userInfo.keys
+        
+        //let todo = try JSONSerialization.jsonObject(with: userInfo, options: []) as? [NSObject: AnyObject]
+        //let todoTicket = todo?["ticket"] as? String
+        //let todoGrupo : String = userInfo["grupo"]
+        
+        TicketConstant.pageView.goToPage(index: 1)
         
     }
     
@@ -343,6 +398,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
 }
 
 @available(iOS 10, *)
+
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
     // Receive displayed notifications for iOS 10 devices.

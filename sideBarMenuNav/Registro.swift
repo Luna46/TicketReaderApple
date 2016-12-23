@@ -197,10 +197,7 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         datos.registro = self
         
         self.navigationController?.pushViewController(datos, animated: true)
-        //self.performSegue(withIdentifier: "toCamera", sender: self)
-        /**self.configureVideoCapture()
-        self.addVideoPreviewLayer()
-        self.initializeQRView()*/
+        
         
     }
     
@@ -241,78 +238,7 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     }
     
     
-    func configureVideoCapture() {
-        let objCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        var error:NSError?
-        let objCaptureDeviceInput: AnyObject!
-        do {
-            objCaptureDeviceInput = try AVCaptureDeviceInput(device: objCaptureDevice) as AVCaptureDeviceInput
-            
-        } catch let error1 as NSError {
-            error = error1
-            objCaptureDeviceInput = nil
-        }
-        if (error != nil) {
-            let alertView:UIAlertView = UIAlertView(title: "Device Error", message:"Device not Supported for this Application", delegate: nil, cancelButtonTitle: "Ok Done")
-            alertView.show()
-            return
-        }
-        objCaptureSession = AVCaptureSession()
-        objCaptureSession?.addInput(objCaptureDeviceInput as! AVCaptureInput)
-        let objCaptureMetadataOutput = AVCaptureMetadataOutput()
-        objCaptureSession?.addOutput(objCaptureMetadataOutput)
-        objCaptureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        objCaptureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
-    }
-    
-    func addVideoPreviewLayer() {
-        objCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: objCaptureSession)
-        objCaptureVideoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        objCaptureVideoPreviewLayer?.frame = view.layer.bounds
-        self.view.layer.addSublayer(objCaptureVideoPreviewLayer!)
-        objCaptureSession?.startRunning()
-        //self.view.bringSubview(toFront: lblQRCodeResult)
-        //self.view.bringSubview(toFront: lblQRCodeLabel)
-    }
-    
-    func initializeQRView() {
-        vwQRCode = UIView()
-        vwQRCode?.layer.borderColor = UIColor.red.cgColor
-        vwQRCode?.layer.borderWidth = 5
-        self.view.addSubview(vwQRCode!)
-        self.view.bringSubview(toFront: vwQRCode!)
-    }
-    
-    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        if metadataObjects == nil || metadataObjects.count == 0 {
-            vwQRCode?.frame = CGRect.zero
-            UID.text = "NO QRCode text detacted"
-            return
-        }
-        let objMetadataMachineReadableCodeObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        if objMetadataMachineReadableCodeObject.type == AVMetadataObjectTypeQRCode {
-            let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
-            vwQRCode?.frame = objBarCode.bounds;
-            if objMetadataMachineReadableCodeObject.stringValue != nil {
-                UID.text = objMetadataMachineReadableCodeObject.stringValue
-                //navigationController?.popViewController(animated: true)
-
-                //var datos = self.storyboard?.instantiateViewController(withIdentifier: "Registro") as! Registro
-                
-                //self.navigationController?.pushViewController(datos, animated: true)
-                
-                //datos.UID?.text = objMetadataMachineReadableCodeObject.stringValue
-                //datos.UID?.text = "GG"
-                objCaptureSession?.stopRunning()
-                
-                //var prueba = datos.UID.text
-                //var hola: String
-                //objCaptureSession?.stopRunning()
-            }
-        }
-    }
-    
-    //Creación del "tocken de Goolge".
+        //Creación del "tocken de Goolge".
     func tocken(lenght: Int) -> String{
         
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"

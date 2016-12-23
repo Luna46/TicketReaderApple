@@ -30,5 +30,7 @@ public class TicketConstant {
     
     static var colTickets : Ticket = Ticket()
     
+    static var pageView : PageViewController = PageViewController()
+    
     
 }

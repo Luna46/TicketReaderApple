@@ -11,12 +11,18 @@ import UIKit
 //CLASE QUE CREA LOS "FRAGMENTS".
 class PageViewController: UIPageViewController {
     
-    
+    var currentIndex : Int = 0
     @IBOutlet var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var label: UILabel!
     var TableArray = [String]()
     
+    func goToPage(index: Int) {
+        //	viewControllerAtIndex(index)
+
+            setViewControllers([viewControllerAtIndex(index)!], direction: .reverse, animated: true, completion: nil)
+        
+    }
     
     override func viewDidLoad() {
         
@@ -65,6 +71,8 @@ extension PageViewController: UIPageViewControllerDataSource {
 extension PageViewController: ViewControllerProvider {
     
     var initialViewController: UIViewController {
+        
+        TicketConstant.pageView = self
         
         let servidor = TicketWebServer()
         TicketConstant.ticketList = servidor.getTicketsByEmail(userEmail: TicketConstant.Email, bincludeAllTicket: false)

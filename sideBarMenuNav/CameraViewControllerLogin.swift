@@ -8,7 +8,7 @@
 
 import AVFoundation
 import UIKit
-class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
+class CameraViewControllerLogin: UIViewController, AVCaptureMetadataOutputObjectsDelegate
 {
     
     var registro = Registro()
@@ -80,14 +80,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
-                registro.UID.text = objMetadataMachineReadableCodeObject.stringValue
+                login.uidTextField.text = objMetadataMachineReadableCodeObject.stringValue
                 //login.uidTextField.text = objMetadataMachineReadableCodeObject.stringValue
-
+                
                 /**var datos = self.storyboard?.instantiateViewController(withIdentifier: "Registro") as! Registro
-                
-                self.navigationController?.pushViewController(datos, animated: true)
-                
-                datos.UIDFrom = objMetadataMachineReadableCodeObject.stringValue*/
+                 
+                 self.navigationController?.pushViewController(datos, animated: true)
+                 
+                 datos.UIDFrom = objMetadataMachineReadableCodeObject.stringValue*/
                 
                 //datos.Email.text = "Hola klk"
                 

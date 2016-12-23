@@ -12,6 +12,7 @@
 		B3CE13F6AB27B5EC5E4ECBD4 /* Pods_TicketReaderAppleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A197ACFFFB5C0018BD6C3ADB /* Pods_TicketReaderAppleTests.framework */; };
 		BB5EF3271E081EF40072A9DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB5EF3261E081EF40072A9DC /* GoogleService-Info.plist */; };
 		BB6B61B91E0A97DD00F0F56A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6B61B81E0A97DD00F0F56A /* CameraViewController.swift */; };
+		BB6B61BB1E0AA52E00F0F56A /* CameraViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6B61BA1E0AA52E00F0F56A /* CameraViewControllerLogin.swift */; };
 		BB77EB851E003F0C00D6C9A7 /* white.gif in Resources */ = {isa = PBXBuildFile; fileRef = BB77EB841E003F0C00D6C9A7 /* white.gif */; };
 		BB77EB871E003F3E00D6C9A7 /* checkboxD.png in Resources */ = {isa = PBXBuildFile; fileRef = BB77EB861E003F3E00D6C9A7 /* checkboxD.png */; };
 		BB77EB891E0045C500D6C9A7 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = BB77EB881E0045C500D6C9A7 /* camera.png */; };
@@ -67,8 +68,10 @@
 		5B1525E441B15FDE5647FCC1 /* Pods-TicketReaderApple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderApple.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderApple/Pods-TicketReaderApple.release.xcconfig"; sourceTree = "<group>"; };
 		5C565D1E6F6C3242367A7054 /* Pods-TicketReaderAppleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderAppleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderAppleTests/Pods-TicketReaderAppleTests.release.xcconfig"; sourceTree = "<group>"; };
 		A197ACFFFB5C0018BD6C3ADB /* Pods_TicketReaderAppleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketReaderAppleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB546ADA1E0C31AE006B189B /* TicketReaderApple.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TicketReaderApple.entitlements; sourceTree = SOURCE_ROOT; };
 		BB5EF3261E081EF40072A9DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB6B61B81E0A97DD00F0F56A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		BB6B61BA1E0AA52E00F0F56A /* CameraViewControllerLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerLogin.swift; sourceTree = "<group>"; };
 		BB77EB841E003F0C00D6C9A7 /* white.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = white.gif; sourceTree = "<group>"; };
 		BB77EB861E003F3E00D6C9A7 /* checkboxD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkboxD.png; sourceTree = "<group>"; };
 		BB77EB881E0045C500D6C9A7 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 		BBD28C741DF5B60400246AEF /* TicketReaderApple */ = {
 			isa = PBXGroup;
 			children = (
+				BB546ADA1E0C31AE006B189B /* TicketReaderApple.entitlements */,
 				BBD28CA31DF5B61600246AEF /* SWRevealViewController */,
 				BBD28C751DF5B60400246AEF /* AppDelegate.swift */,
 				BBD28CA81DF5C13300246AEF /* Busqueda.swift */,
@@ -220,6 +224,7 @@
 				BB8785331DFF1507003A7F76 /* Registro.swift */,
 				BB88D5581E018BFB0051F231 /* Login.swift */,
 				BB6B61B81E0A97DD00F0F56A /* CameraViewController.swift */,
+				BB6B61BA1E0AA52E00F0F56A /* CameraViewControllerLogin.swift */,
 			);
 			name = TicketReaderApple;
 			path = sideBarMenuNav;
@@ -315,6 +320,14 @@
 						DevelopmentTeam = C9698KUH57;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					BBD28C851DF5B60400246AEF = {
 						CreatedOnToolsVersion = 8.1;
@@ -543,6 +556,7 @@
 				BBD28CA91DF5C13300246AEF /* Busqueda.swift in Sources */,
 				BBD28CB11DF5C7F000246AEF /* TicketConstant.swift in Sources */,
 				BBD28CAD1DF5C5EE00246AEF /* EditUser.swift in Sources */,
+				BB6B61BB1E0AA52E00F0F56A /* CameraViewControllerLogin.swift in Sources */,
 				BBD28CB51DF5C84600246AEF /* CardViewController.swift in Sources */,
 				BB6B61B91E0A97DD00F0F56A /* CameraViewController.swift in Sources */,
 				BBD28CB91DF5C8FE00246AEF /* ViewControllerProvider.swift in Sources */,
@@ -698,6 +712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TicketReaderApple.entitlements;
 				DEVELOPMENT_TEAM = C9698KUH57;
 				INFOPLIST_FILE = sideBarMenuNav/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -716,6 +731,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TicketReaderApple.entitlements;
 				DEVELOPMENT_TEAM = C9698KUH57;
 				INFOPLIST_FILE = sideBarMenuNav/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;

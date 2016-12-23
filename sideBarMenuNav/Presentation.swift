@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 public class Presentation: UIViewController {
     @IBOutlet weak var pregistryButton: UIButton!
@@ -79,7 +80,30 @@ public class Presentation: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        let content = UNMutableNotificationContent()
         
+        content.title = "Hello"
+        content.body = "What up?"
+        content.sound = UNNotificationSound.default()
+        
+        // Deliver the notification in five seconds.
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
+        
+        // Schedule the notification.
+        let center = UNUserNotificationCenter.current()
+        center.add(request) { (error) in
+            print(error)
+        }
+        print("should have been added")
+        
+        /**var localNotification = UILocalNotification()
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
+        localNotification.alertAction = "Nuevo ticket"
+        localNotification.alertBody = "Ticket"
+        //localNotification.timeZone = NSTimeZone.default
+        localNotification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+        UIApplication.shared.scheduleLocalNotification(localNotification)*/
         
         //Personalización de botones.
         pregistryButton.layer.cornerRadius = 10
