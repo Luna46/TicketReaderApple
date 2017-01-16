@@ -43,12 +43,18 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - GTMSessionFetcher/Full (1.1.7):
     - GTMSessionFetcher/Core (= 1.1.7)
+  - JBDatePicker (1.0.3)
+  - KNSemiModalViewController_hons82 (0.4.5)
+  - THCalendarDatePicker (1.2.8):
+    - KNSemiModalViewController_hons82 (~> 0.4.5)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Messaging
   - GoogleAPIClient/Calendar (~> 1.0.2)
   - GTMOAuth2 (~> 1.1.0)
+  - JBDatePicker
+  - THCalendarDatePicker (~> 1.2.6)
 
 SPEC CHECKSUMS:
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
@@ -62,7 +68,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  JBDatePicker: 4fc68df0feb844be065c68c8f3c6440c5abc7a89
+  KNSemiModalViewController_hons82: 0ef0ef5ed7c3814ddd0fa9c884ab74d5495de16b
+  THCalendarDatePicker: fd1a1103ae0d1d1f2d0f9a1463a3f628a23a25a5
 
-PODFILE CHECKSUM: 3442b5ede8a72617487b3d0a03a56fb3f75a43f6
+PODFILE CHECKSUM: ccb2ec334d98ce552cd36af3c41823e5f8ca1c0a
 
 COCOAPODS: 1.1.1

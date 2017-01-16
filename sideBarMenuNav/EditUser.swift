@@ -19,12 +19,17 @@ class EditUser: UIViewController {
         
     }
 
+    @IBAction func back(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "aLosT", sender: self)
+        
+    }
     
     @IBOutlet var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: "revealToggle:")
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: "revealToggle:")
         
         //Personalización de botones.
         quitButton.layer.cornerRadius = 10

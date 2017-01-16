@@ -1,0 +1,116 @@
+//
+//  ASMonthM.swift
+//  Example
+//
+//  Created by alberto.scampini on 19/05/2016.
+//  Copyright © 2016 Alberto Scampini. All rights reserved.
+//
+
+import Foundation
+
+struct ASMonthM {
+    
+    var month: Int!
+    var year : Int!
+    var weeks : Array<ASWeekM>!
+    
+    init(month : Int, year : Int, settings : ASSettingsM) {
+        self.month = month
+        self.year = year
+        //create a nsdate
+        var calendar = Calendar.current
+        calendar.minimumDaysInFirstWeek = 7
+        var components = DateComponents()
+        components.year = year
+        components.month = month
+        components.day = 1
+        let date = calendar.date(from: components)
+        //calculate number of days in month
+        let range = (calendar as NSCalendar).range(of: .day, in: .month, for: date!)
+        let daysCount = range.length
+        //find first day weekday
+        let myComponents = (calendar as NSCalendar).components([.weekday, .weekOfYear], from: date!)
+        var weekNumber = myComponents.weekOfYear
+        var weekDay = myComponents.weekday
+        //switch to start by monday
+        if (settings.startByMonday.value == true) {
+            if weekDay == 1 {
+                weekDay = 7
+            } else {
+                
+                //weekDay -= 1
+                weekDay = weekDay! - 1
+            }
+        }
+        //create weeks
+        var allWeeks = Array<ASWeekM>()
+        var currentWeek = ASWeekM()
+        currentWeek.weekMonth = month
+        currentWeek.weekYear = year
+        for i in 1...daysCount {
+            //create day
+            var currentDay = currentWeek.days[weekDay!-1]
+            currentDay.dayNumber = i
+            currentDay.dayMonth = month
+            currentDay.dayYear = year
+            currentDay.dayWeek = weekNumber
+            currentDay.dayEnabled = true
+            //check settings (active or inactive days)
+            if ((year < settings.firstSelectableDate.value.year) ||
+                (year == settings.firstSelectableDate.value.year &&
+                month < settings.firstSelectableDate.value.month) ||
+                (year == settings.firstSelectableDate.value.year &&
+                month == settings.firstSelectableDate.value.month &&
+                i < settings.firstSelectableDate.value.day))
+            {
+                currentDay.daySelectable = false
+            } else if ((year > settings.lastSelectableDate.value.year) ||
+                       (year == settings.lastSelectableDate.value.year &&
+                       month > settings.lastSelectableDate.value.month) ||
+                       (year == settings.lastSelectableDate.value.year &&
+                       month == settings.lastSelectableDate.value.month &&
+                       i > settings.lastSelectableDate.value.day))
+            {
+                currentDay.daySelectable = false
+            } else {
+                currentDay.daySelectable = true
+            }
+            //check settings (selected days)
+            currentDay.daySelected = false
+            switch settings.selectionStyle.value {
+            case .day :
+                if (year == settings.selectedDay.value.dayYear &&
+                    month == settings.selectedDay.value.dayMonth &&
+                    i == settings.selectedDay.value.dayNumber)
+                {
+                    currentDay.daySelected = true
+                }
+            case .week :
+                if (year == settings.selectedDay.value.dayYear &&
+                    month == settings.selectedDay.value.dayMonth &&
+                    weekNumber == settings.selectedDay.value.dayWeek)
+                {
+                    currentDay.daySelected = true
+                    currentWeek.weekSelected = true
+                }
+            }
+            //add
+            currentWeek.days[weekDay!-1] = currentDay
+            //next day
+            weekDay = weekDay! + 1
+            if (weekDay! > 7) {
+                weekDay = 1
+                allWeeks.append(currentWeek)
+                currentWeek = ASWeekM()
+                weekNumber = weekNumber! + 1
+                currentWeek.weekMonth = month
+                currentWeek.weekYear = year
+            }
+        }
+        if (weekDay! > 1) {
+            allWeeks.append(currentWeek)
+        }
+        //set new data
+        self.weeks = allWeeks
+    }
+}

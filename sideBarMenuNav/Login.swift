@@ -24,6 +24,19 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
     
     var delegate: ScannerViewControllerDelegate?
     
+    @IBAction func back(_ sender: Any) {
+        
+        var camino = (TicketConstant.Email == "")
+        
+        if camino {
+            
+            displayMyAlertMessage(userMessage: "No estás conectado")
+            
+        }
+        
+        self.performSegue(withIdentifier: "aLosTickets2", sender: self)
+        
+    }
     var device: AVCaptureDevice?
     var input: AVCaptureDeviceInput?
     var output: AVCaptureMetadataOutput?
@@ -281,7 +294,18 @@ public class Login: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UI
         //connectToFcm()
     }
     
-    
+    func displayMyAlertMessage(userMessage: String) {
+        
+        var myAlert = UIAlertController(title: "Cuidado", message: userMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        
+        myAlert.addAction(okAction)
+        
+        self.present(myAlert, animated: true, completion: nil)
+        
+        
+    }
     
     /*
      // MARK: - Navigation

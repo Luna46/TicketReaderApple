@@ -22,6 +22,25 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     
     var UIDFrom: String?
     
+    var cont = 0
+    
+    @IBAction func back(_ sender: Any) {
+        
+        var camino = (TicketConstant.Email == "")
+        
+        if camino {
+            
+            displayMyAlertMessage(userMessage: "No estás registrado")
+            
+        }
+        
+        else{
+        
+            self.performSegue(withIdentifier: "aLosTickets", sender: self)
+        }
+        
+    }
+    
     
     var objCaptureSession:AVCaptureSession?
     var objCaptureVideoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -220,6 +239,8 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         //Personalización botón.
         registerButton.layer.cornerRadius = 10

@@ -16,6 +16,11 @@ class PageViewControllerSearch: UIPageViewController {
     var TableArray = [String]()
     var indexSearch: Int?
     
+    @IBAction func back(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "aLosT", sender: self)
+        
+    }
     
     override func viewDidLoad() {
 
@@ -24,6 +29,8 @@ class PageViewControllerSearch: UIPageViewController {
         
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: "revealToggle:")
+        
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self.performSegue(withIdentifier: "aLosT", sender: self), action: "someAction:")
         
         dataSource = self
         setViewControllers([initialViewController], direction: .forward, animated: false, completion: nil)

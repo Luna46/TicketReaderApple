@@ -357,18 +357,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         print(userInfo)
     }*/
     
-    func application(_ application: UIApplication,  didReceiveRemoteNotification userInfo: [NSObject : AnyObject],  fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication,  didReceiveRemoteNotification userInfo: [String : AnyObject],  fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         print(userInfo)
         //userInfo.index(forKey: "grupo" as NSObject)
         //print(userInfo["grupo"])
         //userInfo.keys
         
-        //let todo = try JSONSerialization.jsonObject(with: userInfo, options: []) as? [NSObject: AnyObject]
-        //let todoTicket = todo?["ticket"] as? String
-        //let todoGrupo : String = userInfo["grupo"]
         
-        TicketConstant.pageView.goToPage(index: 1)
+        //let todo = try JSONSerialization.jsonObject(with: userInfo, options: []) as? [String: AnyObject]
+        //let todoTicket = userInfo["ticket"] as? String
+        let todoId : String = userInfo["idTicket"] as! String
+        var ticket = Ticket()
+        ticket.setIdticket(idTicket: Int(todoId)!)
+        TicketConstant.ticketList.append(ticket)
+        TicketConstant.pageView.goToPage(index: TicketConstant.ticketList.count-1)
         
     }
     

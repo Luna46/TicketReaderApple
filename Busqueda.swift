@@ -6,11 +6,28 @@
 //  Copyright © 2016 Miguel Angel Luna. All rights reserved.
 //
 
+
+
 import UIKit
 import Firebase
 
-class Busqueda: UIViewController {
+
+class Busqueda: UIViewController, ASCalendarDelegate {
     
+    @IBOutlet weak var button: UIButton!
+    
+    var count = 0
+    var calDe = false
+    var calA = false
+
+    @IBAction func barButton(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "vueltaTickets", sender: self)
+        
+        //self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+
     @IBOutlet weak var quitSearch: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var TextFieldGroup: UITextField!
@@ -20,6 +37,43 @@ class Busqueda: UIViewController {
     @IBOutlet var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var backToTickets: UIButton!
+    
+    
+    @IBAction func calendarD(_ sender: Any) {
+        
+        let calendarD = ASCalendar()
+        calendarD.delegate = self
+        calendarD.showCalendarAsLayer()
+        calDe = true
+        
+        
+    }
+    
+    @IBAction func calendar(_ sender: Any) {
+        
+        let calendar = ASCalendar()
+        calendar.delegate = self
+        calendar.showCalendarAsLayer()
+        calA = true
+        
+        
+    }
+    
+    func calendarSelect(_ day: Int, week: Int, month: Int, year: Int) {
+        NSLog("%d-%d-%d (%d)", day, month, year, week)
+        
+        if calDe{
+            dateTextFieldD.text = "\(day)-\(month)-\(year)"
+            calDe = false
+        }
+        else {
+        
+            dateTextFieldA.text = "\(day)-\(month)-\(year)"
+            calA = false
+        }
+        
+        
+    }
     
     @IBAction func backToTickets(_ sender: Any) {
         
@@ -68,7 +122,15 @@ class Busqueda: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: "revealToggle:")
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.reply, target: self.navigationController?.popToViewController(revealViewController(), animated: true), action: "someAction:")
+        
+        //self.navigationController?.popToRootViewController(animated: true)
+        
+        //navigationItem.popViewController(animated: true)
+        
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: "revealToggle:")
+        
+        
         
         //Personalización de botones.
         searchButton.layer.cornerRadius = 10

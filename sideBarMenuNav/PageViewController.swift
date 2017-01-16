@@ -11,6 +11,13 @@ import UIKit
 //CLASE QUE CREA LOS "FRAGMENTS".
 class PageViewController: UIPageViewController {
     
+    @IBAction func back(_ sender: Any) {
+        
+        self.viewDidLoad()
+        
+        //self.performSegue(withIdentifier: "aLosT", sender: self)
+        
+    }
     var currentIndex : Int = 0
     @IBOutlet var menuButton: UIBarButtonItem!
     

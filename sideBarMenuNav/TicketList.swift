@@ -12,6 +12,11 @@ import UIKit
 
 public class TicketList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBAction func back(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "aLosT", sender: self)
+        
+    }
 
     @IBOutlet weak var tableView: UITableView!
     

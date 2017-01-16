@@ -24,13 +24,18 @@ public class TicketConstant {
     
     static var lastTicket: Ticket?
     
-    static var IPAndPort: String = "192.168.1.50"
+    static var IPAndPort: String = "212.36.69.111:8099"
     
     static var ticketList = Array<Ticket>()
     
     static var colTickets : Ticket = Ticket()
     
     static var pageView : PageViewController = PageViewController()
+    
+    static var userAPIREST : String = "disatec"
+    
+    static var pwdAPIREST : String = "disatec2016wT316Ky"
+    
     
     
 }
