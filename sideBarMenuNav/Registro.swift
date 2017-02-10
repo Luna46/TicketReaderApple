@@ -20,6 +20,8 @@ protocol ScannerViewControllerDelegate {
 
 public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate, UIAlertViewDelegate, UITextFieldDelegate {
     
+    
+    
     var UIDFrom: String?
     
     var cont = 0
@@ -66,6 +68,62 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
     @IBOutlet weak var PassWord: UITextField!
     @IBOutlet weak var PassWordR: UITextField!
     @IBOutlet weak var UID: UITextField!
+    @IBOutlet weak var Age: UITextField!
+    @IBOutlet weak var radioButtonMen: UIButton!
+    @IBOutlet weak var radioButtonWomen: UIButton!
+    var checkedH = false
+    var checkedM = false
+    
+    @IBAction func checkH(_ sender: Any) {
+        if !checkedH {
+            var imageH : UIImage = UIImage(named: "radioButton selected")!
+            radioButtonMen.setImage(imageH, for: UIControlState())
+            var imageM : UIImage = UIImage(named: "empty-radiobutton-128")!
+            radioButtonWomen.setImage(imageM, for: UIControlState())
+            checkedH = true
+            checkedM = false
+            //UIDText.isHidden = false
+            //cameraButton.isHidden = false
+        }
+            
+        else if checkedH {
+            var imageH2 : UIImage = UIImage(named: "empty-radiobutton-128")!
+            radioButtonMen.setImage(imageH2, for: UIControlState())
+            var imageM2 : UIImage = UIImage(named: "radioButton selected")!
+            radioButtonWomen.setImage(imageM2, for: UIControlState())
+            checkedH = false
+            checkedM = true
+            
+            //UIDText.isHidden = true
+            //cameraButton.isHidden = true
+        }
+    }
+    
+    @IBAction func checkM(_ sender: Any) {
+        if !checkedM {
+            var imageH : UIImage = UIImage(named: "radioButton selected")!
+            radioButtonWomen.setImage(imageH, for: UIControlState())
+            var imageM : UIImage = UIImage(named: "empty-radiobutton-128")!
+            radioButtonMen.setImage(imageM, for: UIControlState())
+            checkedM = true
+            checkedH = false
+            
+            //UIDText.isHidden = false
+            //cameraButton.isHidden = false
+        }
+            
+        else if checkedM {
+            var imageH2 : UIImage = UIImage(named: "empty-radiobutton-128")!
+            radioButtonWomen.setImage(imageH2, for: UIControlState())
+            var imageM2 : UIImage = UIImage(named: "radioButton selected")!
+            radioButtonMen.setImage(imageM2, for: UIControlState())
+            checkedM = false
+            checkedH = true
+            //UIDText.isHidden = true
+            //cameraButton.isHidden = true
+        }
+    }
+    
     
     @IBOutlet weak var checkBoxButton: UIButton!
     
@@ -122,9 +180,13 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
                 //"Tocken de Google" más abajo está la implementación de la función.
                 let Tocken = FIRInstanceID.instanceID().token()
                 //let refreshedToken =
+                var sexo : Int = 0
+                if self.checkedM {
+                    sexo = 1
+                }
             
                 //LLamada al servidor, la llamada se hace de esta manera debido a los "threads" para evitar colisiones.
-                servidor.sendUIDtoServer(Usuario: TicketConstant.Usuario, PassWord: TicketConstant.Password, Email: TicketConstant.Email, UID: TicketConstant.UID!, token: Tocken!, mensaje: "") { message, error in
+                servidor.sendUIDtoServer(Usuario: TicketConstant.Usuario, PassWord: TicketConstant.Password, Email: TicketConstant.Email, UID: TicketConstant.UID!, token: Tocken!, edad: Int(Age.text!)! , sexo: sexo, logoOff: 0) { message, error in
                 
                     var emailEqual = (message == "Email existente")
                     var UIDEqual = (message == "UID existente")
@@ -179,7 +241,47 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
                         print("REGISTRAO")
                         //let camino = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
                         DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "aLosTickets", sender: self)
+                            TicketConstant.tag.append(TicketConstant.UID)
+                            let prueba = TicketWebServer()
+                            var t = Ticket()
+                            
+                            let date = NSDate()
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "dd-MM-yyyy"
+                            let result = formatter.string(from: date as Date)
+                            let myNSString = result as NSString
+                            var day = Int(result.substring(to: result.characters.index(of: "-")!))
+                            let startM = result.index(result.startIndex, offsetBy: 3)
+                            let endM = result.index(result.endIndex, offsetBy: -5)
+                            let rangeM = startM..<endM
+                            var month = Int(result.substring(with: rangeM))!
+                            let start = result.index(result.startIndex, offsetBy: 6)
+                            let end = result.index(result.endIndex, offsetBy: 0)
+                            let range = start..<end
+                            var year = Int(result.substring(with: range))!
+                            var resta10 = day! - 10
+                            if (resta10<=0){
+                                resta10 = 30 - resta10
+                                month = month - 1
+                                if(month == 0){
+                                    month = 12
+                                    year = year - 1
+                                }
+                            }
+                            var dayT = String(resta10)
+                            var monthT = String(month)
+                            var yearT = String(year)
+                            let resultResta = "\(dayT)-\(monthT)-\(yearT)"
+                            //var month = result.
+                            //var name = "Stephen"
+                            //var prueba = result.substring(with: NSRange(location: 0, length: 3))
+                            //var month = myNSString.substringWithRange(Range<String.Index>(start: myNSString.startIndex.advancedBy(3), end: myNSString.endIndex.advancedBy(-5))) //"llo, playgroun"
+                            
+                            TicketConstant.ticketList = prueba.ticketSearchAndFav(userName: TicketConstant.Email, grupo: "%20", comercio: "%20", strDateFrom: resultResta, strDateTo: result, bIncludeAllTicket: true, fav: 0)
+                            
+                            var comp = TicketConstant.ticketList
+
+                            self.performSegue(withIdentifier: "Tab", sender: self)
                         }
                         //self.navigationController?.pushViewController(camino, animated: true)
                     

@@ -368,10 +368,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         //let todo = try JSONSerialization.jsonObject(with: userInfo, options: []) as? [String: AnyObject]
         //let todoTicket = userInfo["ticket"] as? String
         let todoId : String = userInfo["idTicket"] as! String
+        
+        if TicketConstant.ticketList.count > 0{
+            var ticketFind = TicketConstant.ticketList[TicketConstant.ticketList.count-1]
+            if ticketFind.getIdticket() == Int(todoId) {
+                print("Ticket repetido con id \(todoId)")
+                return
+            }
+        }
+        
+        
+       
+            
         var ticket = Ticket()
         ticket.setIdticket(idTicket: Int(todoId)!)
         TicketConstant.ticketList.append(ticket)
-        TicketConstant.pageView.goToPage(index: TicketConstant.ticketList.count-1)
+        print("Ticket Insertado")
+        /**self.window = UIWindow(frame: UIScreen.main.bounds)
+        /**let datos = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+        
+        self.navigationController?.pushViewController(datos, animated: true)
+        
+        datos.indexTouch = indexPath.row
+        datos.lastTicketView = true*/
+        let  storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let datos = storyboard.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController as UIViewController
+        let navigationController = application.windows[0].rootViewController as! UINavigationController
+        navigationController.setViewControllers([datos], animated: true)
+        datos.indexTouch = TicketConstant.ticketList.count-1
+        //self.window?.inputViewController = datos
+        self.window?.rootViewController = datos
+        self.window?.makeKeyAndVisible()//ESTO FUNCIONA*/
+        
+        //self.window = UIWindow(frame: UIScreen.main.bounds)
+        /**let datos = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
+         
+         self.navigationController?.pushViewController(datos, animated: true)
+         
+         datos.indexTouch = indexPath.row
+         datos.lastTicketView = true*/
+        //let  storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        //let datos = storyboard.instantiateViewController(withIdentifier: "lastTickets") as! LastTicketsView
+        //let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        //navigationController.viewControllers = [datos]
+        //navigationController.setViewControllers([datos], animated: true)
+        /**datos.indexTouch = TicketConstant.ticketList.count-1
+        datos.alarmTicket = true
+        datos.mainWindow = self
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()*/
+        //datos.navigationController?.pushViewController(datos, animated: true)
+        
+
+        //datos.lastTicketView = true
+        TicketConstant.pageView.indexTouch = TicketConstant.ticketList.count-1
+        TicketConstant.pageView.mostrarUltimoTicket()
         
     }
     

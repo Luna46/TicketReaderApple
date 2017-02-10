@@ -13,6 +13,7 @@ class CameraViewControllerLogin: UIViewController, AVCaptureMetadataOutputObject
     
     var registro = Registro()
     var login = Login()
+    var loginP = Presentation()
     //@IBOutlet weak var lblQRCodeResult: UILabel!
     //@IBOutlet weak var lblQRCodeLabel: UILabel!
     
@@ -80,7 +81,7 @@ class CameraViewControllerLogin: UIViewController, AVCaptureMetadataOutputObject
             let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
-                login.uidTextField.text = objMetadataMachineReadableCodeObject.stringValue
+                loginP.UIDText.text = objMetadataMachineReadableCodeObject.stringValue
                 //login.uidTextField.text = objMetadataMachineReadableCodeObject.stringValue
                 
                 /**var datos = self.storyboard?.instantiateViewController(withIdentifier: "Registro") as! Registro

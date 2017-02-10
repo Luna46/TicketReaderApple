@@ -30,12 +30,26 @@ public class TicketConstant {
     
     static var colTickets : Ticket = Ticket()
     
-    static var pageView : PageViewController = PageViewController()
+    static var pageView : LastTicketsView = LastTicketsView()
     
     static var userAPIREST : String = "disatec"
     
     static var pwdAPIREST : String = "disatec2016wT316Ky"
     
+    static var tag = Array<String>()
     
+    static var ticketsFavs = Array<Ticket>()
+    
+    static var diasAtras : Int = 10
+    
+    static var comercio = Comercio()
+    
+    static var ciudad = City()
+    
+    static var tipo = Activities()
+    
+    static var alarmTicket = false
+    
+    static var tabBar = CustomTabBarController()
     
 }

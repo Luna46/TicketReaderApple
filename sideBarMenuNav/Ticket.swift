@@ -17,6 +17,7 @@ class Ticket {
     var grupo: String?
     var comercio: String?
     var ticket: String?
+    var fav: Int?
     
     init(){
     }
@@ -46,6 +47,13 @@ class Ticket {
         self.uid = uid
     }
     
+    func setFav(fav: Int) {
+        self.fav = fav
+    }
+    
+    func getFav() -> Int {
+        return fav!
+    }
     
     func getGrupo() -> String {
         return grupo!
