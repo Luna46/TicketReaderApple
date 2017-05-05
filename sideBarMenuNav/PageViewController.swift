@@ -103,7 +103,7 @@ class PageViewController: UIPageViewController {
                                          target: self,
                                          action: #selector(putFavs(sender:)))
         if countView == 1{
-            viewControllerAtIndex(indexTouch!)
+            setViewControllers([initialViewController], direction: .forward, animated: false, completion: nil)
         }
         navigationItem.rightBarButtonItem = backButton
     }
@@ -156,7 +156,7 @@ class PageViewController: UIPageViewController {
         //navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self.revealViewController(), action: "revealToggle:")
         dataSource = self
         //if lastTicketView {
-            setViewControllers([initialViewController], direction: .forward, animated: false, completion: nil)
+            //setViewControllers([initialViewController], direction: .forward, animated: false, completion: nil)
         //}
     }
 }
@@ -227,7 +227,7 @@ extension PageViewController: ViewControllerProvider {
             }
             
             if (ticket.getFav()==0){
-                backButton.tintColor = UIColor.gray
+                backButton.tintColor = UIColor(white: 1, alpha: 0.5)
             }
             else{
                 backButton.tintColor = UIColor.orange
@@ -258,7 +258,7 @@ extension PageViewController: ViewControllerProvider {
         //ticket = servidor.getTicket(idTicket: TicketConstant.ticketList[index].getIdticket())
         if (ticket.getFav() == 1){
             
-            self.backButton.tintColor = UIColor.gray
+            self.backButton.tintColor = UIColor(white: 1, alpha: 0.5)
             servidor.setTicketFav(idTicket: ticket.getIdticket(), fav: 0)
             ticket.setFav(fav: 0)
             

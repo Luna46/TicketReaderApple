@@ -80,7 +80,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
-                registro.UID.text = objMetadataMachineReadableCodeObject.stringValue
+                registro.etTagReg.text = objMetadataMachineReadableCodeObject.stringValue
                 //login.uidTextField.text = objMetadataMachineReadableCodeObject.stringValue
 
                 /**var datos = self.storyboard?.instantiateViewController(withIdentifier: "Registro") as! Registro

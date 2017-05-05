@@ -35,7 +35,7 @@ class TicketWebServer {
             
             do {
                 if let todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? Array<[String: AnyObject]> {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     if todo.count == 0 {
                         return tickets
                     }
@@ -81,7 +81,7 @@ class TicketWebServer {
             
             do {
                 if let todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? [String: AnyObject] {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     
                     let todoContraseña = todo["contraseña"] as? String
                     let todoEdad = todo["edad"] as? Int
@@ -109,6 +109,32 @@ class TicketWebServer {
             print("Error user")
         }
         return user
+    }
+    
+    func deleteTag(tag: String){
+        
+        let loginString = NSString(format: "%@:%@", TicketConstant.userAPIREST, TicketConstant.pwdAPIREST)
+        let loginData: NSData = loginString.data(using: String.Encoding.utf8.rawValue)! as NSData
+        let base64LoginString = loginData.base64EncodedString(options: [])
+        let urlPath: String = "http://\(TicketConstant.IPAndPort)/TicketWeb/webresources/disatec.ticket.dispositivo/\(tag)"
+        let url: NSURL = NSURL(string: urlPath)!
+        var request1 = URLRequest(url: url as URL)
+        let response : AutoreleasingUnsafeMutablePointer<URLResponse?>? = nil
+        request1.httpMethod = "DELETE";
+        request1.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        do {
+            
+            let dataVal = try NSURLConnection.sendSynchronousRequest(request1, returning: response)
+            
+            print(response)
+            
+            
+        }
+        catch {
+            print("Error TAGS")
+        }
+
     }
     
     func getTags(userEmail: String) -> Array<Tag> {
@@ -207,7 +233,7 @@ class TicketWebServer {
             
             do {
                 if let todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? [String: AnyObject] {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     
                     let todoTicket = todo["ticket"] as? String
                     let todoGrupo = todo["grupo"] as? String
@@ -255,7 +281,7 @@ class TicketWebServer {
             
             do {
                 if let todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? Array<[String: AnyObject]> {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     if todo.count == 0 {
                         return tipos
                     }
@@ -303,7 +329,7 @@ class TicketWebServer {
             
             do {
                 if let todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? Array<[String: AnyObject]> {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     if todo.count == 0 {
                         return ciudades
                     }
@@ -350,7 +376,7 @@ class TicketWebServer {
             
             do {
                 if let todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? Array<[String: AnyObject]> {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     if todo.count == 0 {
                         return comercios
                     }
@@ -404,7 +430,7 @@ class TicketWebServer {
             
             do {
                 if var todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? Array<[String: AnyObject]> {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     if todo.count != 0 {
                         for index in 0...(todo.count)-1{
                             
@@ -474,24 +500,25 @@ class TicketWebServer {
         return tickets
     }
     
-    func editCuenta(idUser: Int, Usuario: String, Email: String, edad: Int, sexo: Int, completionHandler: @escaping (String, NSError?) -> Void) -> URLSessionTask {
+    func editCuenta(user : Usuario, password : Bool, completionHandler: @escaping (String, NSError?) -> Void) -> URLSessionTask {
  
-        let stringUser = String(idUser)
-        let stringEdad = String(edad)
-        let stringSexo = String(sexo)
+        let stringUser = "\(user.getIdUsuario())"
+        let stringEdad = "\(user.getEdad())"
+        let stringSexo = "\(user.getSexo())"
+        let stringLogOff = "\(user.getLogOff())"
         let loginString = NSString(format: "%@:%@", TicketConstant.userAPIREST, TicketConstant.pwdAPIREST)
         let loginData: NSData = loginString.data(using: String.Encoding.utf8.rawValue)! as NSData
         let base64LoginString = loginData.base64EncodedString(options: [])
         
-        let myUrl = NSURL(string: "http://\(TicketConstant.IPAndPort)/TicketWeb/webresources/disatec.ticket.usuario/\(idUser)")
+        let myUrl = NSURL(string: "http://\(TicketConstant.IPAndPort)/TicketWeb/webresources/disatec.ticket.usuario/\(user.getIdUsuario())/\(password)")
         
         
         let request = NSMutableURLRequest(url: myUrl! as URL)
-        request.httpMethod = "POST";
+        request.httpMethod = "PUT";
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
-        let params = ["idUser": stringUser, "Nombre": Usuario, "Email": Email, "Edad": stringEdad, "Sexo": stringSexo]
+        let params = ["idUsuario": stringUser, "nombre": user.getNombre(), "email": user.getEmail(), "edad": stringEdad, "sexo": stringSexo, "logOff": stringLogOff, "contraseña": user.getPassword()]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions())
         } catch let error {
@@ -537,7 +564,7 @@ class TicketWebServer {
             
             do {
                 if var todo = try JSONSerialization.jsonObject(with: dataVal, options: []) as? Array<[String: AnyObject]> {
-                    print("Synchronous\(todo)")
+                    //print("Synchronous\(todo)")
                     if todo.count != 0 {
                         for index in 0...(todo.count)-1{
                             
@@ -611,7 +638,7 @@ class TicketWebServer {
     //POST's
     
     //Registro
-    func sendUIDtoServer(Usuario: String, PassWord: String, Email: String, UID: String, token: String, edad: Int, sexo: Int, logoOff: Int, completionHandler: @escaping (String, NSError?) -> Void) -> URLSessionTask {
+    func sendUIDtoServer(Usuario: String, PassWord: String, Email: String, UID: String, token: String, edad: Int, sexo: Int, logoOff: Int, roletype: Int, completionHandler: @escaping (String, NSError?) -> Void) -> URLSessionTask {
 
         let loginString = NSString(format: "%@:%@", TicketConstant.userAPIREST, TicketConstant.pwdAPIREST)
         let loginData: NSData = loginString.data(using: String.Encoding.utf8.rawValue)! as NSData
@@ -624,7 +651,7 @@ class TicketWebServer {
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 
-        let params = ["Usuario": Usuario, "Contraseña": PassWord, "Email": Email, "UID": UID, "tocken": token, "Edad": edad, "Sexo": sexo] as [String : Any]
+        let params = ["Usuario": Usuario, "Contraseña": PassWord, "Email": Email, "UID": UID, "tocken": token, "Edad": edad, "Sexo": sexo, "logoOff": logoOff, "Roletype": roletype] as [String : Any]
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions())
         } catch let error {

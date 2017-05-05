@@ -138,12 +138,18 @@ public class CityOfTicketsListView: UIViewController, UITableViewDelegate, UITab
         if searchController.isActive && searchController.searchBar.text != "" {
             //stores = [filteredStores[indexPath.row]]
             //storesSelected = [filteredStores[indexPath.row]]
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+            cell.textLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
+            cell.detailTextLabel?.text = ""
+            cell.detailTextLabel?.textColor = UIColor(hex: 0x279989)
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.textLabel?.text = filteredCitys[indexPath.row].getPoblacion()
             return cell
         }
         else{
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+            cell.textLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
+            cell.detailTextLabel?.text = ""
+            cell.detailTextLabel?.textColor = UIColor(hex: 0x279989)
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             cell.textLabel?.text = citys[indexPath.row].getPoblacion()            //cell.textLabel?.text = TicketConstant.ticketList[indexPath.row].getGrupo() + ", " + TicketConstant.ticketList[indexPath.row].getComercio()
             //let fecha = String(describing: TicketConstant.ticketList[indexPath.row].getFecha())
             //cell.detailTextLabel?.text = fecha.substring(to: fecha.characters.index(of: "+")!)

@@ -13,8 +13,9 @@ class Usuario {
     var nombre: String?
     var password: String?
     var email: String?
-    var sexo: Int!
-    var edad: Int!
+    var sexo: Int?
+    var edad: Int?
+    var logOff : Int!
     
     
     
@@ -24,6 +25,14 @@ class Usuario {
     
     func setIdUsuario(idUsuario: Int) {
         self.idUsuario = idUsuario
+    }
+    
+    func getLogOff() -> Int {
+        return logOff!
+    }
+    
+    func setLogOff(logOff: Int) {
+        self.logOff = logOff
     }
     
     func getNombre() -> String {
@@ -38,8 +47,8 @@ class Usuario {
         self.sexo = sexo
     }
     
-    func getSexo() -> Int? {
-        return sexo
+    func getSexo() -> Int {
+        return sexo!
     }
     
     func getPassword() -> String {
@@ -60,8 +69,8 @@ class Usuario {
     }
     
     
-    func getEdad() -> Int?{
-        return edad
+    func getEdad() -> Int{
+        return edad!
     }
     
     func setEdad(edad: Int) {

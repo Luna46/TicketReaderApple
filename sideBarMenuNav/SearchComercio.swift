@@ -130,13 +130,21 @@ public class SearchComercio: UIViewController, UITableViewDelegate, UITableViewD
         if searchController.isActive && searchController.searchBar.text != "" {
             //stores = [filteredStores[indexPath.row]]
             //storesSelected = [filteredStores[indexPath.row]]
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-            cell.textLabel?.text = filteredStores[indexPath.row].getGrupo() + ", " + filteredStores[indexPath.row].getComercio()
+            cell.textLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
+            //cell.detailTextLabel?.font = UIFont(name: "AvenirNext-Bold", size: 12.0)
+            cell.detailTextLabel?.text = filteredStores[indexPath.row].getComercio()
+            cell.detailTextLabel?.textColor = UIColor(hex: 0x279989)
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            cell.textLabel?.text = filteredStores[indexPath.row].getGrupo()
             return cell
         }
         else{
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-            cell.textLabel?.text = stores[indexPath.row].getGrupo() + ", " + stores[indexPath.row].getComercio()
+            cell.textLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
+            //cell.detailTextLabel?.font = UIFont(name: "AvenirNext-Bold", size: 12.0)
+            cell.detailTextLabel?.text = stores[indexPath.row].getComercio()
+            cell.detailTextLabel?.textColor = UIColor(hex: 0x279989)
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            cell.textLabel?.text = stores[indexPath.row].getGrupo()
             //cell.textLabel?.text = TicketConstant.ticketList[indexPath.row].getGrupo() + ", " + TicketConstant.ticketList[indexPath.row].getComercio()
             //let fecha = String(describing: TicketConstant.ticketList[indexPath.row].getFecha())
             //cell.detailTextLabel?.text = fecha.substring(to: fecha.characters.index(of: "+")!)

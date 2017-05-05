@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         localNotification.alertAction = "Nuevo ticket"
         localNotification.alertBody = "Ticket"
         localNotification.timeZone = NSTimeZone.default
-        localNotification.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+        localNotification.applicationIconBadgeNumber = 0
         UIApplication.shared.scheduleLocalNotification(localNotification)
         /**var notification = UILocalNotification()
         // debe de activarse dentro de 5 segundos
@@ -253,6 +253,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        UIApplication.shared.statusBarStyle = .lightContent
+        //application.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+        application.applicationIconBadgeNumber = 0
+        UILabel.appearance().substituteFontName = "AvenirNext-Regular"
+        
         if #available(iOS 10.0, *) {
             //let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
             //UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_,_ in })
@@ -370,7 +375,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         let todoId : String = userInfo["idTicket"] as! String
         
         if TicketConstant.ticketList.count > 0{
-            var ticketFind = TicketConstant.ticketList[TicketConstant.ticketList.count-1]
+            var ticketFind = TicketConstant.ticketList[0]
             if ticketFind.getIdticket() == Int(todoId) {
                 print("Ticket repetido con id \(todoId)")
                 return
@@ -382,7 +387,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
             
         var ticket = Ticket()
         ticket.setIdticket(idTicket: Int(todoId)!)
-        TicketConstant.ticketList.append(ticket)
+        //TicketConstant.ticketList.append(ticket)
+        TicketConstant.ticketList.insert(ticket, at: 0)
         print("Ticket Insertado")
         /**self.window = UIWindow(frame: UIScreen.main.bounds)
         /**let datos = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as! PageViewController
@@ -423,8 +429,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FIRMessagingDelegate {
         
 
         //datos.lastTicketView = true
-        TicketConstant.pageView.indexTouch = TicketConstant.ticketList.count-1
-        TicketConstant.pageView.mostrarUltimoTicket()
+        if (TicketConstant.pageView != nil){
+            
+            TicketConstant.pageView?.indexTouch = 0
+            TicketConstant.pageView?.mostrarUltimoTicket()
+            
+        }
+        
+        else {
+            
+            LastTicketsView.alarmTicket = true;
+            
+        }
         
     }
     

@@ -24,21 +24,31 @@ public class FavTicketsView: UIViewController, UITableViewDelegate, UITableViewD
     
     public override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barTintColor = UIColor(hex: 0xa1d884)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(hex: 0x5DB860)
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 18)!]
         navigationItem.title = "Tickets favoritos"
         //navigationItem.leftBarButtonItem?.tintColor = UIColor.clear
     }
     
     override public func viewDidAppear(_ animated: Bool) {
+        
+        TicketConstant.comercio.setComercio(comercio: "")
+        TicketConstant.ciudad.setPoblacion(poblacion: "")
+        TicketConstant.tipo.setActividad(actividad: "")
+        
         count += 1
         if count > 1 {
             
             let servidor = TicketWebServer()
             //var t = Ticket()
             
-            TicketConstant.ticketList = servidor.ticketSearchAndFav(userName: TicketConstant.Email, grupo: "%20", comercio: "%20", strDateFrom: "%20", strDateTo: "%20", bIncludeAllTicket: true, fav: 1)
+            TicketConstant.ticketList = servidor.ticketSearchAndFav(userName: TicketConstant.Email, grupo: "%20", comercio: "%20", strDateFrom: "%20", strDateTo: "%20", bIncludeAllTicket: false, fav: 1)
             if TicketConstant.ticketList.count == 0 {
                 labelInformation.isHidden = false
-                labelInformation.font = UIFont.boldSystemFont(ofSize: 16)
+                labelInformation.font = UIFont(name: "AvenirNext-Regular", size: 16.0)
                 labelInformation.text = "No existen tickets favoritos"
                 tableView.isHidden = true
             }
@@ -57,9 +67,12 @@ public class FavTicketsView: UIViewController, UITableViewDelegate, UITableViewD
     override public func viewDidLoad() {
         
         super.viewDidLoad()
+        TicketConstant.comercio.setComercio(comercio: "")
+        TicketConstant.ciudad.setPoblacion(poblacion: "")
+        TicketConstant.tipo.setActividad(actividad: "")
         labelInformation.isHidden = true
         let servidor = TicketWebServer()
-        TicketConstant.ticketList = servidor.ticketSearchAndFav(userName: TicketConstant.Email, grupo: "%20", comercio: "%20", strDateFrom: "%20", strDateTo: "%20", bIncludeAllTicket: true, fav: 1)
+        TicketConstant.ticketList = servidor.ticketSearchAndFav(userName: TicketConstant.Email, grupo: "%20", comercio: "%20", strDateFrom: "%20", strDateTo: "%20", bIncludeAllTicket: false, fav: 1)
         tabBarController?.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         //panGesture.requireGestureRecognizerToFail(singleTapRecognizer)
         //self.view.gestureRecognizers?.removeAll()
@@ -77,7 +90,7 @@ public class FavTicketsView: UIViewController, UITableViewDelegate, UITableViewD
         //Sino existen tickets con la búsqueda ofrecida lo informamos.
         if TicketConstant.ticketList.count == 0 {
             labelInformation.isHidden = false
-            labelInformation.font = UIFont.boldSystemFont(ofSize: 16)
+            labelInformation.font = UIFont(name: "AvenirNext-Regular", size: 16.0)
             labelInformation.text = "No existen tickets favoritos"
             tableView.isHidden = true
         }
@@ -98,11 +111,13 @@ public class FavTicketsView: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "MiCelda", for: indexPath)
         
         let ticketSelected = TicketConstant.ticketList[indexPath.row]
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        cell.textLabel?.font = UIFont(name: "AvenirNext-Bold", size: 12.0)
+        cell.textLabel?.textColor = UIColor(hex: 0x279989)
         cell.textLabel?.text = TicketConstant.ticketList[indexPath.row].getGrupo() + ", " + TicketConstant.ticketList[indexPath.row].getComercio()
         let fecha = String(describing: TicketConstant.ticketList[indexPath.row].getFecha())
         cell.detailTextLabel?.text = fecha.substring(to: fecha.characters.index(of: "+")!)
-        cell.imageView?.image = UIImage(named: "Imagen1")
+        cell.imageView?.image = UIImage(named: "grande")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         
         return cell
     }

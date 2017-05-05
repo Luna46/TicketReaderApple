@@ -26,11 +26,15 @@ public class TicketConstant {
     
     static var IPAndPort: String = "212.36.69.111:8099"
     
+    static var ticketListLast = Array<Ticket>()
+    
+    static var ticketListFav = Array<Ticket>()
+    
     static var ticketList = Array<Ticket>()
     
     static var colTickets : Ticket = Ticket()
     
-    static var pageView : LastTicketsView = LastTicketsView()
+    static var pageView : LastTicketsView? = nil
     
     static var userAPIREST : String = "disatec"
     
@@ -42,6 +46,10 @@ public class TicketConstant {
     
     static var diasAtras : Int = 10
     
+    static var fechaDesde : String = ""
+    
+    static var fechaHasta : String = ""
+    
     static var comercio = Comercio()
     
     static var ciudad = City()
@@ -51,5 +59,7 @@ public class TicketConstant {
     static var alarmTicket = false
     
     static var tabBar = CustomTabBarController()
+    
+    static var refreshLast = false
     
 }

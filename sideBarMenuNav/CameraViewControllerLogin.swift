@@ -28,6 +28,23 @@ class CameraViewControllerLogin: UIViewController, AVCaptureMetadataOutputObject
         self.initializeQRView()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.tintColor = UIColor.white
+        let back = UIBarButtonItem(image: UIImage(named: "arrow-back-128"),
+                                   style: .plain,
+                                   target: self,
+                                   action: #selector(goBack(sender:)))
+        navigationItem.leftBarButtonItem = back
+        
+    }
+    
+    func goBack(sender: UIBarButtonItem) {
+    
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     func configureVideoCapture() {
         let objCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         var error:NSError?
@@ -81,7 +98,7 @@ class CameraViewControllerLogin: UIViewController, AVCaptureMetadataOutputObject
             let objBarCode = objCaptureVideoPreviewLayer?.transformedMetadataObject(for: objMetadataMachineReadableCodeObject as AVMetadataMachineReadableCodeObject) as! AVMetadataMachineReadableCodeObject
             vwQRCode?.frame = objBarCode.bounds;
             if objMetadataMachineReadableCodeObject.stringValue != nil {
-                loginP.UIDText.text = objMetadataMachineReadableCodeObject.stringValue
+                loginP.tagTextLogin.text = objMetadataMachineReadableCodeObject.stringValue
                 //login.uidTextField.text = objMetadataMachineReadableCodeObject.stringValue
                 
                 /**var datos = self.storyboard?.instantiateViewController(withIdentifier: "Registro") as! Registro
