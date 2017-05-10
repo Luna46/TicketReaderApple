@@ -28,6 +28,10 @@ public class TicketList: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override public func viewDidAppear(_ animated: Bool) {
         
+        TicketConstant.comercio.setComercio(comercio: "")
+        TicketConstant.ciudad.setPoblacion(poblacion: "")
+        TicketConstant.tipo.setActividad(actividad: "")
+        
         if cargarListado {
         
             count += 1
@@ -62,6 +66,10 @@ public class TicketList: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
         labelinformation.isHidden = true
         
+        TicketConstant.comercio.setComercio(comercio: "")
+        TicketConstant.ciudad.setPoblacion(poblacion: "")
+        TicketConstant.tipo.setActividad(actividad: "")
+        
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "power-icon"), style: .plain, target: nil, action: "some:")
         //tabBarController.
@@ -89,12 +97,13 @@ public class TicketList: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "MiCelda", for: indexPath)
         
         let ticketSelected = TicketConstant.ticketList[indexPath.row]
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        cell.textLabel?.font = UIFont(name: "AvenirNext-Bold", size: 12.0)
+        cell.textLabel?.textColor = UIColor(hex: 0x279989)
         cell.textLabel?.text = TicketConstant.ticketList[indexPath.row].getGrupo() + ", " + TicketConstant.ticketList[indexPath.row].getComercio()
         let fecha = String(describing: TicketConstant.ticketList[indexPath.row].getFecha())
         cell.detailTextLabel?.text = fecha.substring(to: fecha.characters.index(of: "+")!)
-        cell.imageView?.image = UIImage(named: "Imagen1")
-        
+        cell.imageView?.image = UIImage(named: "grande")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
     }
     

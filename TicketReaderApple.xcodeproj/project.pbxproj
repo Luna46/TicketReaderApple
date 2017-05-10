@@ -115,6 +115,54 @@
 		BBD438D61DF8230200386B7A /* TicketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD438D51DF8230200386B7A /* TicketList.swift */; };
 		BBEC7EE81E44AA990085B906 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEC7EE71E44AA990085B906 /* Activities.swift */; };
 		BBEC7EEA1E44AAAC0085B906 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEC7EE91E44AAAC0085B906 /* City.swift */; };
+		EB141F651EC3682500022703 /* degradedNew.png in Resources */ = {isa = PBXBuildFile; fileRef = EB141F641EC3682500022703 /* degradedNew.png */; };
+		EB3C83651EC24B8F007AC9DD /* selectedTiCloud.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83641EC24B8F007AC9DD /* selectedTiCloud.PNG */; };
+		EB3C838A1EC24BD1007AC9DD /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83661EC24BD1007AC9DD /* 1.png */; };
+		EB3C838B1EC24BD1007AC9DD /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83671EC24BD1007AC9DD /* 3.png */; };
+		EB3C838C1EC24BD1007AC9DD /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83681EC24BD1007AC9DD /* 4.png */; };
+		EB3C838D1EC24BD1007AC9DD /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83691EC24BD1007AC9DD /* 11.png */; };
+		EB3C838E1EC24BD1007AC9DD /* 33.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C836A1EC24BD1007AC9DD /* 33.png */; };
+		EB3C838F1EC24BD1007AC9DD /* 44.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C836B1EC24BD1007AC9DD /* 44.png */; };
+		EB3C83901EC24BD1007AC9DD /* ajustes.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C836C1EC24BD1007AC9DD /* ajustes.png */; };
+		EB3C83911EC24BD1007AC9DD /* bolsa.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C836D1EC24BD1007AC9DD /* bolsa.png */; };
+		EB3C83921EC24BD1007AC9DD /* ButtonAccount.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C836E1EC24BD1007AC9DD /* ButtonAccount.png */; };
+		EB3C83931EC24BD1007AC9DD /* buttonEditUserEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C836F1EC24BD1007AC9DD /* buttonEditUserEmpty.png */; };
+		EB3C83941EC24BD1007AC9DD /* calendar_green.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83701EC24BD1007AC9DD /* calendar_green.png */; };
+		EB3C83951EC24BD1007AC9DD /* calendar_search_ticket.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83711EC24BD1007AC9DD /* calendar_search_ticket.png */; };
+		EB3C83961EC24BD1007AC9DD /* close-button-png-27.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83721EC24BD1007AC9DD /* close-button-png-27.png */; };
+		EB3C83971EC24BD1007AC9DD /* cuenta.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83731EC24BD1007AC9DD /* cuenta.png */; };
+		EB3C83981EC24BD1007AC9DD /* degraded.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83741EC24BD1007AC9DD /* degraded.png */; };
+		EB3C83991EC24BD1007AC9DD /* favbueno.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83751EC24BD1007AC9DD /* favbueno.png */; };
+		EB3C839A1EC24BD1007AC9DD /* favListIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83761EC24BD1007AC9DD /* favListIcon.png */; };
+		EB3C839B1EC24BD1007AC9DD /* flecha_edit_text.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83771EC24BD1007AC9DD /* flecha_edit_text.png */; };
+		EB3C839C1EC24BD1007AC9DD /* flechalisticket.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83781EC24BD1007AC9DD /* flechalisticket.png */; };
+		EB3C839D1EC24BD1007AC9DD /* flechalisticketSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83791EC24BD1007AC9DD /* flechalisticketSearch.png */; };
+		EB3C839E1EC24BD1007AC9DD /* grande.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C837A1EC24BD1007AC9DD /* grande.png */; };
+		EB3C839F1EC24BD1007AC9DD /* icono-chatarreria-medio-ambiente-recielpuente.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C837B1EC24BD1007AC9DD /* icono-chatarreria-medio-ambiente-recielpuente.png */; };
+		EB3C83A01EC24BD1007AC9DD /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C837C1EC24BD1007AC9DD /* info.png */; };
+		EB3C83A11EC24BD1007AC9DD /* logo_listado.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C837D1EC24BD1007AC9DD /* logo_listado.png */; };
+		EB3C83A21EC24BD1007AC9DD /* logo_ticloud.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C837E1EC24BD1007AC9DD /* logo_ticloud.png */; };
+		EB3C83A31EC24BD1007AC9DD /* lupaD.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C837F1EC24BD1007AC9DD /* lupaD.png */; };
+		EB3C83A41EC24BD1007AC9DD /* medioambiente.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83801EC24BD1007AC9DD /* medioambiente.png */; };
+		EB3C83A51EC24BD1007AC9DD /* nfc.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83811EC24BD1007AC9DD /* nfc.png */; };
+		EB3C83A61EC24BD1007AC9DD /* no_check_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83821EC24BD1007AC9DD /* no_check_trans.png */; };
+		EB3C83A71EC24BD1007AC9DD /* no_check.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83831EC24BD1007AC9DD /* no_check.PNG */; };
+		EB3C83A81EC24BD1007AC9DD /* no_checkTiCloud.PNG in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83841EC24BD1007AC9DD /* no_checkTiCloud.PNG */; };
+		EB3C83A91EC24BD1007AC9DD /* power-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83851EC24BD1007AC9DD /* power-icon.png */; };
+		EB3C83AA1EC24BD1007AC9DD /* quienes_somos.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83861EC24BD1007AC9DD /* quienes_somos.png */; };
+		EB3C83AB1EC24BD1007AC9DD /* rButtonAccount.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83871EC24BD1007AC9DD /* rButtonAccount.png */; };
+		EB3C83AC1EC24BD1007AC9DD /* selected_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83881EC24BD1007AC9DD /* selected_trans.png */; };
+		EB3C83AD1EC24BD1007AC9DD /* ticket-icon-64996.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83891EC24BD1007AC9DD /* ticket-icon-64996.png */; };
+		EB3C83AF1EC24C39007AC9DD /* listado.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83AE1EC24C39007AC9DD /* listado.png */; };
+		EB3C83B11EC24C59007AC9DD /* logo_login.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B01EC24C59007AC9DD /* logo_login.png */; };
+		EB3C83B31EC24C7D007AC9DD /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B21EC24C7D007AC9DD /* arrow_right.png */; };
+		EB3C83BB1EC24CE6007AC9DD /* camera_icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B41EC24CE6007AC9DD /* camera_icon_post.png */; };
+		EB3C83BC1EC24CE6007AC9DD /* candado.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B51EC24CE6007AC9DD /* candado.png */; };
+		EB3C83BD1EC24CE6007AC9DD /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B61EC24CE6007AC9DD /* email.png */; };
+		EB3C83BE1EC24CE6007AC9DD /* radio_button_off_grey_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B71EC24CE6007AC9DD /* radio_button_off_grey_192x192.png */; };
+		EB3C83BF1EC24CE6007AC9DD /* radio_button_on_grey_192x192.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B81EC24CE6007AC9DD /* radio_button_on_grey_192x192.png */; };
+		EB3C83C01EC24CE6007AC9DD /* rButtonEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83B91EC24CE6007AC9DD /* rButtonEmpty.png */; };
+		EB3C83C11EC24CE6007AC9DD /* rButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C83BA1EC24CE6007AC9DD /* rButtonSelected.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +303,54 @@
 		BBEC7EE71E44AA990085B906 /* Activities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		BBEC7EE91E44AAAC0085B906 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		CF104A8F438B11B3183B7895 /* Pods_TicketReaderApple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicketReaderApple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB141F641EC3682500022703 /* degradedNew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = degradedNew.png; sourceTree = "<group>"; };
+		EB3C83641EC24B8F007AC9DD /* selectedTiCloud.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedTiCloud.PNG; sourceTree = "<group>"; };
+		EB3C83661EC24BD1007AC9DD /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		EB3C83671EC24BD1007AC9DD /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		EB3C83681EC24BD1007AC9DD /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		EB3C83691EC24BD1007AC9DD /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
+		EB3C836A1EC24BD1007AC9DD /* 33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 33.png; sourceTree = "<group>"; };
+		EB3C836B1EC24BD1007AC9DD /* 44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 44.png; sourceTree = "<group>"; };
+		EB3C836C1EC24BD1007AC9DD /* ajustes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ajustes.png; sourceTree = "<group>"; };
+		EB3C836D1EC24BD1007AC9DD /* bolsa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolsa.png; sourceTree = "<group>"; };
+		EB3C836E1EC24BD1007AC9DD /* ButtonAccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonAccount.png; sourceTree = "<group>"; };
+		EB3C836F1EC24BD1007AC9DD /* buttonEditUserEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonEditUserEmpty.png; sourceTree = "<group>"; };
+		EB3C83701EC24BD1007AC9DD /* calendar_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_green.png; sourceTree = "<group>"; };
+		EB3C83711EC24BD1007AC9DD /* calendar_search_ticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_search_ticket.png; sourceTree = "<group>"; };
+		EB3C83721EC24BD1007AC9DD /* close-button-png-27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-button-png-27.png"; sourceTree = "<group>"; };
+		EB3C83731EC24BD1007AC9DD /* cuenta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cuenta.png; sourceTree = "<group>"; };
+		EB3C83741EC24BD1007AC9DD /* degraded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = degraded.png; sourceTree = "<group>"; };
+		EB3C83751EC24BD1007AC9DD /* favbueno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favbueno.png; sourceTree = "<group>"; };
+		EB3C83761EC24BD1007AC9DD /* favListIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favListIcon.png; sourceTree = "<group>"; };
+		EB3C83771EC24BD1007AC9DD /* flecha_edit_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flecha_edit_text.png; sourceTree = "<group>"; };
+		EB3C83781EC24BD1007AC9DD /* flechalisticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flechalisticket.png; sourceTree = "<group>"; };
+		EB3C83791EC24BD1007AC9DD /* flechalisticketSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flechalisticketSearch.png; sourceTree = "<group>"; };
+		EB3C837A1EC24BD1007AC9DD /* grande.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grande.png; sourceTree = "<group>"; };
+		EB3C837B1EC24BD1007AC9DD /* icono-chatarreria-medio-ambiente-recielpuente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-chatarreria-medio-ambiente-recielpuente.png"; sourceTree = "<group>"; };
+		EB3C837C1EC24BD1007AC9DD /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		EB3C837D1EC24BD1007AC9DD /* logo_listado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_listado.png; sourceTree = "<group>"; };
+		EB3C837E1EC24BD1007AC9DD /* logo_ticloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_ticloud.png; sourceTree = "<group>"; };
+		EB3C837F1EC24BD1007AC9DD /* lupaD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lupaD.png; sourceTree = "<group>"; };
+		EB3C83801EC24BD1007AC9DD /* medioambiente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medioambiente.png; sourceTree = "<group>"; };
+		EB3C83811EC24BD1007AC9DD /* nfc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nfc.png; sourceTree = "<group>"; };
+		EB3C83821EC24BD1007AC9DD /* no_check_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_check_trans.png; sourceTree = "<group>"; };
+		EB3C83831EC24BD1007AC9DD /* no_check.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_check.PNG; sourceTree = "<group>"; };
+		EB3C83841EC24BD1007AC9DD /* no_checkTiCloud.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_checkTiCloud.PNG; sourceTree = "<group>"; };
+		EB3C83851EC24BD1007AC9DD /* power-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "power-icon.png"; sourceTree = "<group>"; };
+		EB3C83861EC24BD1007AC9DD /* quienes_somos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quienes_somos.png; sourceTree = "<group>"; };
+		EB3C83871EC24BD1007AC9DD /* rButtonAccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rButtonAccount.png; sourceTree = "<group>"; };
+		EB3C83881EC24BD1007AC9DD /* selected_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_trans.png; sourceTree = "<group>"; };
+		EB3C83891EC24BD1007AC9DD /* ticket-icon-64996.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ticket-icon-64996.png"; sourceTree = "<group>"; };
+		EB3C83AE1EC24C39007AC9DD /* listado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listado.png; sourceTree = "<group>"; };
+		EB3C83B01EC24C59007AC9DD /* logo_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_login.png; sourceTree = "<group>"; };
+		EB3C83B21EC24C7D007AC9DD /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_right.png; sourceTree = "<group>"; };
+		EB3C83B41EC24CE6007AC9DD /* camera_icon_post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_icon_post.png; sourceTree = "<group>"; };
+		EB3C83B51EC24CE6007AC9DD /* candado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candado.png; sourceTree = "<group>"; };
+		EB3C83B61EC24CE6007AC9DD /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		EB3C83B71EC24CE6007AC9DD /* radio_button_off_grey_192x192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_button_off_grey_192x192.png; sourceTree = "<group>"; };
+		EB3C83B81EC24CE6007AC9DD /* radio_button_on_grey_192x192.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_button_on_grey_192x192.png; sourceTree = "<group>"; };
+		EB3C83B91EC24CE6007AC9DD /* rButtonEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rButtonEmpty.png; sourceTree = "<group>"; };
+		EB3C83BA1EC24CE6007AC9DD /* rButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rButtonSelected.png; sourceTree = "<group>"; };
 		FA43570F1540C54B6FD606FA /* Pods-TicketReaderAppleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicketReaderAppleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicketReaderAppleUITests/Pods-TicketReaderAppleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,6 +491,54 @@
 		BB8785301DFEF26C003A7F76 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EB141F641EC3682500022703 /* degradedNew.png */,
+				EB3C83B41EC24CE6007AC9DD /* camera_icon_post.png */,
+				EB3C83B51EC24CE6007AC9DD /* candado.png */,
+				EB3C83B61EC24CE6007AC9DD /* email.png */,
+				EB3C83B71EC24CE6007AC9DD /* radio_button_off_grey_192x192.png */,
+				EB3C83B81EC24CE6007AC9DD /* radio_button_on_grey_192x192.png */,
+				EB3C83B91EC24CE6007AC9DD /* rButtonEmpty.png */,
+				EB3C83BA1EC24CE6007AC9DD /* rButtonSelected.png */,
+				EB3C83B21EC24C7D007AC9DD /* arrow_right.png */,
+				EB3C83B01EC24C59007AC9DD /* logo_login.png */,
+				EB3C83AE1EC24C39007AC9DD /* listado.png */,
+				EB3C83661EC24BD1007AC9DD /* 1.png */,
+				EB3C83671EC24BD1007AC9DD /* 3.png */,
+				EB3C83681EC24BD1007AC9DD /* 4.png */,
+				EB3C83691EC24BD1007AC9DD /* 11.png */,
+				EB3C836A1EC24BD1007AC9DD /* 33.png */,
+				EB3C836B1EC24BD1007AC9DD /* 44.png */,
+				EB3C836C1EC24BD1007AC9DD /* ajustes.png */,
+				EB3C836D1EC24BD1007AC9DD /* bolsa.png */,
+				EB3C836E1EC24BD1007AC9DD /* ButtonAccount.png */,
+				EB3C836F1EC24BD1007AC9DD /* buttonEditUserEmpty.png */,
+				EB3C83701EC24BD1007AC9DD /* calendar_green.png */,
+				EB3C83711EC24BD1007AC9DD /* calendar_search_ticket.png */,
+				EB3C83721EC24BD1007AC9DD /* close-button-png-27.png */,
+				EB3C83731EC24BD1007AC9DD /* cuenta.png */,
+				EB3C83741EC24BD1007AC9DD /* degraded.png */,
+				EB3C83751EC24BD1007AC9DD /* favbueno.png */,
+				EB3C83761EC24BD1007AC9DD /* favListIcon.png */,
+				EB3C83771EC24BD1007AC9DD /* flecha_edit_text.png */,
+				EB3C83781EC24BD1007AC9DD /* flechalisticket.png */,
+				EB3C83791EC24BD1007AC9DD /* flechalisticketSearch.png */,
+				EB3C837A1EC24BD1007AC9DD /* grande.png */,
+				EB3C837B1EC24BD1007AC9DD /* icono-chatarreria-medio-ambiente-recielpuente.png */,
+				EB3C837C1EC24BD1007AC9DD /* info.png */,
+				EB3C837D1EC24BD1007AC9DD /* logo_listado.png */,
+				EB3C837E1EC24BD1007AC9DD /* logo_ticloud.png */,
+				EB3C837F1EC24BD1007AC9DD /* lupaD.png */,
+				EB3C83801EC24BD1007AC9DD /* medioambiente.png */,
+				EB3C83811EC24BD1007AC9DD /* nfc.png */,
+				EB3C83821EC24BD1007AC9DD /* no_check_trans.png */,
+				EB3C83831EC24BD1007AC9DD /* no_check.PNG */,
+				EB3C83841EC24BD1007AC9DD /* no_checkTiCloud.PNG */,
+				EB3C83851EC24BD1007AC9DD /* power-icon.png */,
+				EB3C83861EC24BD1007AC9DD /* quienes_somos.png */,
+				EB3C83871EC24BD1007AC9DD /* rButtonAccount.png */,
+				EB3C83881EC24BD1007AC9DD /* selected_trans.png */,
+				EB3C83891EC24BD1007AC9DD /* ticket-icon-64996.png */,
+				EB3C83641EC24B8F007AC9DD /* selectedTiCloud.PNG */,
 				BB8785281DFEE980003A7F76 /* menuP.png */,
 				BB87852E1DFEEC9B003A7F76 /* TICKETS-NOW.png */,
 				BB87852C1DFEEA46003A7F76 /* menu.png */,
@@ -655,36 +799,64 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB3C83921EC24BD1007AC9DD /* ButtonAccount.png in Resources */,
 				BB1E6B9D1E37A6620084347A /* p.png in Resources */,
 				BB1E6B9F1E37A7700084347A /* 3d6cfa22852.png in Resources */,
 				BB7F5BF01E3F9CA700A03230 /* 34564.png in Resources */,
 				BB7D74911E27A9EC0028C8EF /* calendarIcon.png in Resources */,
 				BB6FE6811E4B987C00181D6A /* logo copia.png in Resources */,
+				EB3C83AF1EC24C39007AC9DD /* listado.png in Resources */,
+				EB3C83A31EC24BD1007AC9DD /* lupaD.png in Resources */,
 				BB87852D1DFEEA46003A7F76 /* menu.png in Resources */,
+				EB3C83961EC24BD1007AC9DD /* close-button-png-27.png in Resources */,
 				BB7F5BD81E3F359200A03230 /* lupa-hi.png in Resources */,
+				EB3C83AC1EC24BD1007AC9DD /* selected_trans.png in Resources */,
 				BB6737F01E2624C90069FDBA /* 58.png in Resources */,
 				BB66AA451E4337C500C7679C /* flechita.png in Resources */,
+				EB3C83901EC24BD1007AC9DD /* ajustes.png in Resources */,
 				BB66AA431E4332E700C7679C /* 25985.png in Resources */,
+				EB3C839D1EC24BD1007AC9DD /* flechalisticketSearch.png in Resources */,
+				EB3C83991EC24BD1007AC9DD /* favbueno.png in Resources */,
 				BB6737EC1E26232C0069FDBA /* iTunesArtwork@2x.png in Resources */,
 				BB77EB871E003F3E00D6C9A7 /* checkboxD.png in Resources */,
+				EB3C83A11EC24BD1007AC9DD /* logo_listado.png in Resources */,
 				BB7F5BE81E3F4A5800A03230 /* icono.flecha.izquierda.png in Resources */,
 				BB6FE67D1E4B8EE400181D6A /* Imagen1 copia.png in Resources */,
+				EB3C83981EC24BD1007AC9DD /* degraded.png in Resources */,
 				BB6FE6791E4B85CC00181D6A /* Imagen1.png in Resources */,
 				BB8785361DFF165D003A7F76 /* checkbox.gif in Resources */,
 				BB1E6B9B1E37A5850084347A /* person.png in Resources */,
 				BB1E6B971E37A3930084347A /* 58 2.png in Resources */,
+				EB3C838A1EC24BD1007AC9DD /* 1.png in Resources */,
+				EB3C83C11EC24CE6007AC9DD /* rButtonSelected.png in Resources */,
+				EB3C83941EC24BD1007AC9DD /* calendar_green.png in Resources */,
 				BB5D1CC91E4485E6004A2581 /* empty-radiobutton-128.png in Resources */,
+				EB3C839E1EC24BD1007AC9DD /* grande.png in Resources */,
+				EB3C83A81EC24BD1007AC9DD /* no_checkTiCloud.PNG in Resources */,
 				BB5D1CC71E4485D8004A2581 /* radioButton selected.png in Resources */,
+				EB3C83A61EC24BD1007AC9DD /* no_check_trans.png in Resources */,
+				EB3C83BE1EC24CE6007AC9DD /* radio_button_off_grey_192x192.png in Resources */,
 				BB6737EE1E2624BE0069FDBA /* 29.png in Resources */,
+				EB3C839F1EC24BD1007AC9DD /* icono-chatarreria-medio-ambiente-recielpuente.png in Resources */,
+				EB3C83BC1EC24CE6007AC9DD /* candado.png in Resources */,
+				EB3C83A51EC24BD1007AC9DD /* nfc.png in Resources */,
 				BB7F5BE61E3F462F00A03230 /* ambiente-recielpuente.png in Resources */,
+				EB3C83BB1EC24CE6007AC9DD /* camera_icon_post.png in Resources */,
 				BB6737F21E26251F0069FDBA /* 89.png in Resources */,
+				EB141F651EC3682500022703 /* degradedNew.png in Resources */,
+				EB3C83A01EC24BD1007AC9DD /* info.png in Resources */,
+				EB3C83931EC24BD1007AC9DD /* buttonEditUserEmpty.png in Resources */,
 				BB7F5BE21E3F45AC00A03230 /* chat-20.png in Resources */,
+				EB3C838E1EC24BD1007AC9DD /* 33.png in Resources */,
 				BB7F5BE01E3F444C00A03230 /* 472.png in Resources */,
 				BB77EB851E003F0C00D6C9A7 /* white.gif in Resources */,
+				EB3C83BD1EC24CE6007AC9DD /* email.png in Resources */,
 				BBD28C801DF5B60400246AEF /* LaunchScreen.storyboard in Resources */,
 				BB7F5BDA1E3F362B00A03230 /* preferencias-del-sistema.png in Resources */,
+				EB3C83911EC24BD1007AC9DD /* bolsa.png in Resources */,
 				BBD28C7D1DF5B60400246AEF /* Assets.xcassets in Resources */,
 				BB8785381DFF17C9003A7F76 /* selected.png in Resources */,
+				EB3C838D1EC24BD1007AC9DD /* 11.png in Resources */,
 				BB6FE67B1E4B8ED800181D6A /* new.png in Resources */,
 				BB77EB891E0045C500D6C9A7 /* camera.png in Resources */,
 				BB7F5BDE1E3F41FB00A03230 /* maintenance_256.png in Resources */,
@@ -694,16 +866,36 @@
 				BB7F5BEE1E3F9A8C00A03230 /* fav.png in Resources */,
 				BB6FE67F1E4B8EEF00181D6A /* Imagen1 copia 2.png in Resources */,
 				BB87852B1DFEE9F7003A7F76 /* menuD.png in Resources */,
+				EB3C83651EC24B8F007AC9DD /* selectedTiCloud.PNG in Resources */,
+				EB3C83B31EC24C7D007AC9DD /* arrow_right.png in Resources */,
+				EB3C83AB1EC24BD1007AC9DD /* rButtonAccount.png in Resources */,
 				BB8785271DFEE887003A7F76 /* menu icon.png in Resources */,
 				BB57171A1E28E99600087334 /* icon_home.png in Resources */,
 				BB2EAFE51E3A473100B314FB /* star_gold_256.png in Resources */,
+				EB3C83B11EC24C59007AC9DD /* logo_login.png in Resources */,
+				EB3C83BF1EC24CE6007AC9DD /* radio_button_on_grey_192x192.png in Resources */,
+				EB3C83951EC24BD1007AC9DD /* calendar_search_ticket.png in Resources */,
+				EB3C839A1EC24BD1007AC9DD /* favListIcon.png in Resources */,
+				EB3C83AD1EC24BD1007AC9DD /* ticket-icon-64996.png in Resources */,
 				BB1E6B991E37A4070084347A /* 58 3.png in Resources */,
 				BB7F5BDC1E3F392F00A03230 /* ticketLast.png in Resources */,
 				BB6FE6831E4B988900181D6A /* logo.png in Resources */,
+				EB3C838F1EC24BD1007AC9DD /* 44.png in Resources */,
+				EB3C838B1EC24BD1007AC9DD /* 3.png in Resources */,
+				EB3C83A91EC24BD1007AC9DD /* power-icon.png in Resources */,
 				BB87852F1DFEEC9B003A7F76 /* TICKETS-NOW.png in Resources */,
+				EB3C83A41EC24BD1007AC9DD /* medioambiente.png in Resources */,
+				EB3C83AA1EC24BD1007AC9DD /* quienes_somos.png in Resources */,
 				BB5EF3271E081EF40072A9DC /* GoogleService-Info.plist in Resources */,
 				BB6FE6851E4B989400181D6A /* logo copia 2.png in Resources */,
+				EB3C83A71EC24BD1007AC9DD /* no_check.PNG in Resources */,
+				EB3C83971EC24BD1007AC9DD /* cuenta.png in Resources */,
+				EB3C83C01EC24CE6007AC9DD /* rButtonEmpty.png in Resources */,
+				EB3C838C1EC24BD1007AC9DD /* 4.png in Resources */,
+				EB3C839C1EC24BD1007AC9DD /* flechalisticket.png in Resources */,
 				BB7F5BF21E3F9DB200A03230 /* arrow-back-128.png in Resources */,
+				EB3C839B1EC24BD1007AC9DD /* flecha_edit_text.png in Resources */,
+				EB3C83A21EC24BD1007AC9DD /* logo_ticloud.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,6 +1190,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1048,6 +1241,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1060,6 +1254,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1076,6 +1271,7 @@
 				CODE_SIGN_ENTITLEMENTS = TicketReaderApple.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = C9698KUH57;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = sideBarMenuNav/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1096,6 +1292,7 @@
 				CODE_SIGN_ENTITLEMENTS = TicketReaderApple.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = C9698KUH57;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = sideBarMenuNav/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

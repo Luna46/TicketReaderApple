@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class StoreOfTicketsListView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class StoreOfTicketsListView: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var count = 0
     
@@ -43,11 +43,21 @@ public class StoreOfTicketsListView: UIViewController, UITableViewDelegate, UITa
     
     public override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barTintColor = UIColor(hex: 0xa1d884)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(hex: 0x5DB860)
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 18)!]
         navigationItem.title = "Mis comercios"
         //navigationItem.leftBarButtonItem?.tintColor = UIColor.clear
     }
     
     override public func viewDidAppear(_ animated: Bool) {
+        
+        TicketConstant.comercio.setComercio(comercio: "")
+        TicketConstant.ciudad.setPoblacion(poblacion: "")
+        TicketConstant.tipo.setActividad(actividad: "")
+        
         count += 1
         if count > 1 {
             
@@ -57,7 +67,7 @@ public class StoreOfTicketsListView: UIViewController, UITableViewDelegate, UITa
             stores = servidor.storeOfTickets(userName: TicketConstant.Email)
             if stores.count == 0 {
                 labelInformation.isHidden = false
-                labelInformation.font = UIFont.boldSystemFont(ofSize: 16)
+                labelInformation.font = UIFont(name: "AvenirNext-Regular", size: 16.0)
                 labelInformation.text = "No hay comercios existentes"
                 tableView.isHidden = true
             }
@@ -76,11 +86,25 @@ public class StoreOfTicketsListView: UIViewController, UITableViewDelegate, UITa
     override public func viewDidLoad() {
         
         super.viewDidLoad()
+        TicketConstant.comercio.setComercio(comercio: "")
+        TicketConstant.ciudad.setPoblacion(poblacion: "")
+        TicketConstant.tipo.setActividad(actividad: "")
         labelInformation.isHidden = true
+        self.searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        let attributes = [NSFontAttributeName : UIFont.systemFont(ofSize: 14)]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(attributes, for: .normal)
+        //searchController.setValue("Limpiar", forKey: "cancelButton")
+        //let searchFont = UIFont(name: "AvenirNext-Regular", size: 11.0)
+        //let cancelButton = searchController.searchBar.value(forKey: "_cancelButtonText") as! UIButton
+        //cancelButton.setTitle("Limpiar", for: .normal)
+        //cancelButton.titleLabel?.font = searchFont
+        //var textFieldInsideSearchBar = searchController.searchBar.value(forKey: "cancelButton") as? UITextField
+        //textFieldInsideSearchBar?.font = searchFont
+        //searchController.searchBar.text
         
         let servidor = TicketWebServer()
         stores = servidor.storeOfTickets(userName: TicketConstant.Email)
@@ -101,7 +125,7 @@ public class StoreOfTicketsListView: UIViewController, UITableViewDelegate, UITa
         //Sino existen tickets con la búsqueda ofrecida lo informamos.
         if stores.count == 0 {
             labelInformation.isHidden = false
-            labelInformation.font = UIFont.boldSystemFont(ofSize: 16)
+            labelInformation.font = UIFont(name: "AvenirNext-Regular", size: 16.0)
             labelInformation.text = "No hay comercios existentes"
             tableView.isHidden = true
         }
@@ -129,13 +153,21 @@ public class StoreOfTicketsListView: UIViewController, UITableViewDelegate, UITa
         if searchController.isActive && searchController.searchBar.text != "" {
             //stores = [filteredStores[indexPath.row]]
             //storesSelected = [filteredStores[indexPath.row]]
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-            cell.textLabel?.text = filteredStores[indexPath.row].getGrupo() + ", " + filteredStores[indexPath.row].getComercio()
+            cell.textLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
+            //cell.detailTextLabel?.font = UIFont(name: "AvenirNext-Bold", size: 12.0)
+            cell.detailTextLabel?.text = filteredStores[indexPath.row].getComercio()
+            cell.detailTextLabel?.textColor = UIColor(hex: 0x279989)
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            cell.textLabel?.text = filteredStores[indexPath.row].getGrupo()
             return cell
         }
         else{
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-            cell.textLabel?.text = stores[indexPath.row].getGrupo() + ", " + stores[indexPath.row].getComercio()
+            cell.textLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12.0)
+            //cell.detailTextLabel?.font = UIFont(name: "AvenirNext-Bold", size: 12.0)
+            cell.detailTextLabel?.text = stores[indexPath.row].getComercio()
+            cell.detailTextLabel?.textColor = UIColor(hex: 0x279989)
+            cell.textLabel?.text = stores[indexPath.row].getGrupo()
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         //cell.textLabel?.text = TicketConstant.ticketList[indexPath.row].getGrupo() + ", " + TicketConstant.ticketList[indexPath.row].getComercio()
         //let fecha = String(describing: TicketConstant.ticketList[indexPath.row].getFecha())
         //cell.detailTextLabel?.text = fecha.substring(to: fecha.characters.index(of: "+")!)

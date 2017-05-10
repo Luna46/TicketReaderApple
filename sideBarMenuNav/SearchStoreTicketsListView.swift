@@ -69,7 +69,8 @@ public class SearchStoreTicketsListView: UIViewController, UITableViewDelegate, 
             let servidor = TicketWebServer()
             let newGroup = grupo.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
             let newComercio = comercio.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
-            TicketConstant.ticketList = servidor.ticketSearchAndFav(userName: TicketConstant.Email, grupo: newGroup, comercio: newComercio, strDateFrom: "%20", strDateTo: "%20", bIncludeAllTicket: true, fav: 0)
+            //TicketConstant.ticketList = servidor.ticketSearchAndFav(userName: TicketConstant.Email, grupo: newGroup, comercio: newComercio, strDateFrom: "%20", strDateTo: "%20", bIncludeAllTicket: false, fav: 0)
+            TicketConstant.ticketList = servidor.buscarBuena(userName: TicketConstant.Email, idActividad: 0, idComercio: TicketConstant.comercio.getId(), poblacion: "%20", strDateFrom: "%20", strDateTo: "%20", bIncludeAllTicket: false, fav: 0)
             tableView.reloadData()
             
         }
@@ -108,11 +109,13 @@ public class SearchStoreTicketsListView: UIViewController, UITableViewDelegate, 
         let cell = tableView.dequeueReusableCell(withIdentifier: "MiCelda", for: indexPath)
         
         let ticketSelected = TicketConstant.ticketList[indexPath.row]
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        cell.textLabel?.font = UIFont(name: "AvenirNext-Bold", size: 12.0)
+        cell.textLabel?.textColor = UIColor(hex: 0x279989)
         cell.textLabel?.text = TicketConstant.ticketList[indexPath.row].getGrupo() + ", " + TicketConstant.ticketList[indexPath.row].getComercio()
         let fecha = String(describing: TicketConstant.ticketList[indexPath.row].getFecha())
         cell.detailTextLabel?.text = fecha.substring(to: fecha.characters.index(of: "+")!)
-        cell.imageView?.image = UIImage(named: "Imagen1")
+        cell.imageView?.image = UIImage(named: "grande")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         
         return cell
     }

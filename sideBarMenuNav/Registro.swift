@@ -710,6 +710,11 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         etNombreReg.rightView = paddingViewNombre
         etNombreReg.attributedPlaceholder = NSAttributedString(string: "Nombre", attributes: [NSForegroundColorAttributeName: UIColor.white])
         etNombreReg.textColor = UIColor.white
+        etNombreReg.layer.cornerRadius = 8.0
+        etNombreReg.backgroundColor = UIColor.clear
+        etNombreReg.layer.borderWidth = 1
+        etNombreReg.layer.borderColor = UIColor.white.cgColor
+        /**
         let path = UIBezierPath(roundedRect: etNombreReg.bounds, byRoundingCorners:[.topLeft, .bottomLeft], cornerRadii: CGSize(width: 8, height: 8))
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
@@ -721,7 +726,7 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         borderLayer.lineWidth = 2
         borderLayer.frame = etNombreReg.bounds
         etNombreReg.layer.addSublayer(borderLayer)
-        etNombreReg.backgroundColor = UIColor.clear
+        etNombreReg.backgroundColor = UIColor.clear*/
         
         var paddingViewApellido = UIView(frame:CGRectMake(0,0,15,15))
         
@@ -819,7 +824,7 @@ public class Registro: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
         etTagReg.layer.borderColor = UIColor.white.cgColor
         etTagReg.isHidden = true
         
-        buttonAddTag.frame = CGRectMake(75, 375, 170, 40)
+        //buttonAddTag.frame = CGRectMake(105, 451, 170, 40)
         buttonAddTag.tintColor = UIColor(hex: 0xa1d884)
         buttonAddTag.setImage(UIImage(named: "no_check_trans.png"), for: UIControlState.normal)
         buttonAddTag.imageEdgeInsets = UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 90)

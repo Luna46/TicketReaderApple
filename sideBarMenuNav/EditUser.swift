@@ -282,7 +282,11 @@ class EditUser: UIViewController , UITableViewDelegate, UITableViewDataSource {
         textNombre.rightView = paddingViewNombre
         textNombre.attributedPlaceholder = NSAttributedString(string: "Nombre", attributes: [NSForegroundColorAttributeName: UIColor(hex: 0x279989)])
         textNombre.textColor = UIColor(hex: 0x279989)
-        let path = UIBezierPath(roundedRect: textNombre.bounds, byRoundingCorners:[.topLeft, .bottomLeft], cornerRadii: CGSize(width: 8, height: 8))
+        textNombre.layer.cornerRadius = 8.0
+        textNombre.backgroundColor = UIColor.clear
+        textNombre.layer.borderWidth = 1
+        textNombre.layer.borderColor = UIColor(hex: 0x279989).cgColor
+        /**let path = UIBezierPath(roundedRect: textNombre.bounds, byRoundingCorners:[.topLeft, .bottomLeft], cornerRadii: CGSize(width: 8, height: 8))
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
         textNombre.layer.mask = maskLayer
@@ -293,7 +297,7 @@ class EditUser: UIViewController , UITableViewDelegate, UITableViewDataSource {
         borderLayer.lineWidth = 2
         borderLayer.frame = textNombre.bounds
         textNombre.layer.addSublayer(borderLayer)
-        textNombre.backgroundColor = UIColor.clear
+        textNombre.backgroundColor = UIColor.clear*/
         
         
         var paddingViewApellido = UIView(frame:CGRectMake(0,0,15,15))
